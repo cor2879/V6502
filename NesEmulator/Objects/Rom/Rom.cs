@@ -1,0 +1,34 @@
+﻿using System;
+
+namespace Emulators.Nes
+{
+    public class Rom
+    {
+        #region Fields
+
+        private RomHeader _header;
+        // private Trainer _trainer;
+        // private Prg _prg;
+        // private Chr _chr;
+
+        #endregion
+
+        #region Constructors
+
+
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Methods
+
+
+
+        #endregion
+    }
+}

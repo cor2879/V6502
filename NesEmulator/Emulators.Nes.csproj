@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60DB654C-2697-407D-9AB8-7DE0F01C9B1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Emulators.Nes</RootNamespace>
+    <AssemblyName>Emulators.Nes</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\ReadOnlyArray.cs" />
+    <Compile Include="Enums\ColorDisplay.cs" />
+    <Compile Include="Enums\FullBackgroundColor.cs" />
+    <Compile Include="Enums\ImageClip.cs" />
+    <Compile Include="Enums\ScreenDisplay.cs" />
+    <Compile Include="Enums\SpriteClip.cs" />
+    <Compile Include="Enums\SpriteDisplay.cs" />
+    <Compile Include="Enums\SpriteSize.cs" />
+    <Compile Include="Exceptions\InstructionSetOverload6502Exception.cs" />
+    <Compile Include="Exceptions\StackOverflow6502Exception.cs" />
+    <Compile Include="Exceptions\StackUnderflow6502Exception.cs" />
+    <Compile Include="Extensions\ByteExtensionMethods.cs" />
+    <Compile Include="Extensions\UInt16Extension.cs" />
+    <Compile Include="Interfaces\ICpuRegister.cs" />
+    <Compile Include="Objects\Cpu\Accumulator.cs" />
+    <Compile Include="Objects\Cpu\Pipeline.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Add\ADC\AddAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INC\IncrementMemoryAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INC\IncrementMemoryAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INC\IncrementMemoryZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INC\IncrementMemoryZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INX\IncrementIndexX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Increment\INY\IncrementIndexY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEC\DecrementMemoryAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEC\DecrementMemoryAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEC\DecrementMemoryZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEC\DecrementMemoryZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEX\DecrementIndexX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Decrement\DEY\DecrementIndexY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDY\LoadIndexYAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDY\LoadIndexYAbsoluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDY\LoadIndexYImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDY\LoadIndexYZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDY\LoadIndexYZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDX\LoadIndexXAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDX\LoadIndexXAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDX\LoadIndexXZeroPageY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\AND\AndAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\EOR\XorAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Logical\ORA\OrAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\CL\ClearCarryFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\CL\ClearDecimalFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\CL\ClearIrqDisabledFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\CL\ClearOverflowFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\SE\SetIrqDisabledFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\SE\SetDecimalModeFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProcessorState\SE\SetCarryFlag.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BC\BranchOnCarryClear.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BC\BranchOnCarrySet.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BE\BranchOnResultEqualToZero.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BE\BranchOnResultNotEqualToZero.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BM\BranchOnResultPositive.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BM\BranchOnResultNegative.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BV\BranchOnOverflowClear.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\BV\BranchOnOverflowSet.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CMP\CompareAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPX\CompareIndexXAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPX\CompareIndexXImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPX\CompareIndexXZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPY\CompareAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPY\CompareAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\CPY\CompareAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\JMP\JumpIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\ProgramControl\JMP\JumpAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STA\StoreAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STX\StoreIndexXAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STX\StoreIndexXZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STX\StoreIndexXZeroPageY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STY\StoreIndexYAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STY\StoreIndexYZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Store\STY\StoreIndexYZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Subtract\SBC\SubtractAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\Primitives\DWord6502.cs" />
+    <Compile Include="Objects\InstructionSet\InstructionSet.cs" />
+    <Compile Include="Objects\InstructionSet\InstructionBase.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorAbosluteX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorAbsolute.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorAbsoluteY.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorIndexedIndirect.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorIndirectIndexed.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorZeroPage.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDA\LoadAccumulatorZeroPageX.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDX\LoadIndexXImmediate.cs" />
+    <Compile Include="Objects\InstructionSet\Instructions\Load\LDX\LoadIndexXZeroPage.cs" />
+    <Compile Include="Objects\Cpu\Cpu6502.cs" />
+    <Compile Include="Objects\Cpu\CpuRegister.cs" />
+    <Compile Include="Objects\EventArgs.cs" />
+    <Compile Include="Objects\Memory\Memory.cs" />
+    <Compile Include="Objects\Console\PictureProcessingUnit.cs" />
+    <Compile Include="Objects\Cpu\ProcessorStatusRegister.cs" />
+    <Compile Include="Objects\Rom\Header.cs" />
+    <Compile Include="Objects\Rom\Rom.cs" />
+    <Compile Include="Objects\Console\VirtualConsole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
