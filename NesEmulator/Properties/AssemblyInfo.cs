@@ -6,7 +6,7 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Emulators.Nes")]
+[assembly: AssemblyTitle("Emulators.Cpu6502")]
 [assembly: AssemblyDescription("Contains the base class library for a Managed Nintendo Entertainment System emulator.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Me")]

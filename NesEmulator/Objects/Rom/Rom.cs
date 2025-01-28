@@ -7,7 +7,7 @@
 #pragma warning disable CS8618
 using System;
 
-namespace Emulators.Nes
+namespace Emulators.Cpu6502
 {
     public class Rom
     {

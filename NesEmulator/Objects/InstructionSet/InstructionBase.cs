@@ -13,7 +13,7 @@ namespace Emulators.Mso6502
     {
         #region Fields
 
-        protected Cpu6502 _cpu;
+        protected Processor _cpu;
         private Int32 _currentCycle;
         private DWord6502 _programCounter = 0x0000;
 
@@ -37,7 +37,7 @@ namespace Emulators.Mso6502
             get { return _currentCycle; }
         }
 
-        protected Cpu6502 Cpu
+        protected Processor Cpu
         {
             get { return _cpu; }
         }
@@ -54,7 +54,7 @@ namespace Emulators.Mso6502
 
         #region Methods
 
-        public virtual void Invoke(Cpu6502 cpu)
+        public virtual void Invoke(Processor cpu)
         {
             _cpu = cpu;
             _currentCycle = 0;

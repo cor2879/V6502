@@ -10,13 +10,13 @@ using System.Collections.Generic;
 
 using Emulators.Mso6502;
 
-namespace Emulators.Nes
+namespace Emulators.Cpu6502
 {
     public class VirtualConsole
     {
         #region Fields
 
-        private Cpu6502 _cpu;
+        private Processor _cpu;
         private PictureProcessingUnit _ppu;
 
         #endregion
@@ -32,7 +32,7 @@ namespace Emulators.Nes
 
         #region Properties
 
-        public Cpu6502 Cpu
+        public Processor Cpu
         {
             get { return _cpu; }
         }
@@ -48,7 +48,7 @@ namespace Emulators.Nes
 
         private void Initialize()
         {
-            _cpu = new Cpu6502(this);
+            _cpu = new Processor(this);
             _ppu = new PictureProcessingUnit(this);
         }
 

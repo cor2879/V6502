@@ -38,7 +38,7 @@ namespace Emulators.Mso6502
 
         #region Methods
 
-        public void Invoke(Byte opCode, Cpu6502 cpu)
+        public void Invoke(Byte opCode, Processor cpu)
         {
             _instructionTable[opCode].Invoke(cpu);
         }

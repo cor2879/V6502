@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>Emulators.Nes</RootNamespace>
-    <AssemblyName>Emulators.Nes</AssemblyName>
+    <RootNamespace>Emulators.Cpu6502</RootNamespace>
+    <AssemblyName>Emulators.Cpu6502</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -44,6 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Emulators.Nes.BinaryParser\Emulators.Nes.Binary.csproj" />
+    <ProjectReference Include="..\Emulators.Nes.BinaryParser\Emulators.Cpu6502.Nes.Binary.csproj" />
   </ItemGroup>
 </Project>

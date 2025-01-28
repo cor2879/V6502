@@ -6,7 +6,7 @@
  ***********************************************************************************************/
 using System;
 
-namespace Emulators.Nes
+namespace Emulators.Cpu6502
 {
     public enum SpriteSize 
         : byte

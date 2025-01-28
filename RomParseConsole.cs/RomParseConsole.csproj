@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <!-- Add project reference to Emulators.Nes.Binary -->
-    <ProjectReference Include="..\Emulators.Nes.BinaryParser\Emulators.Nes.Binary.csproj" />
-    <ProjectReference Include="..\NesEmulator\Emulators.Nes.csproj" />
+    <ProjectReference Include="..\Emulators.Nes.BinaryParser\Emulators.Cpu6502.Nes.Binary.csproj" />
+    <ProjectReference Include="..\NesEmulator\Emulators.Cpu6502.csproj" />
   </ItemGroup>
 
   <ItemGroup>

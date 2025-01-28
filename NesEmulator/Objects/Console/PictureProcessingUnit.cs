@@ -9,7 +9,7 @@ using System;
 
 using Emulators.Mso6502;
 
-namespace Emulators.Nes
+namespace Emulators.Cpu6502
 {
     public class PictureProcessingUnit
     {
@@ -53,14 +53,14 @@ namespace Emulators.Nes
 
         public Byte Ppu1
         {
-            get { return CpuMemory[Cpu6502.PPU_CONTROL_REGISTER_1_ADDRESS]; }
-            set { CpuMemory[Cpu6502.PPU_CONTROL_REGISTER_1_ADDRESS] = value; }
+            get { return CpuMemory[Processor.PPU_CONTROL_REGISTER_1_ADDRESS]; }
+            set { CpuMemory[Processor.PPU_CONTROL_REGISTER_1_ADDRESS] = value; }
         }
 
         public Byte Ppu2
         {
-            get { return CpuMemory[Cpu6502.PPU_CONTROL_REGISTER_2_ADDRESS]; }
-            set { CpuMemory[Cpu6502.PPU_CONTROL_REGISTER_2_ADDRESS] = value; }
+            get { return CpuMemory[Processor.PPU_CONTROL_REGISTER_2_ADDRESS]; }
+            set { CpuMemory[Processor.PPU_CONTROL_REGISTER_2_ADDRESS] = value; }
         }
 
         public UInt16 NameTableSelect

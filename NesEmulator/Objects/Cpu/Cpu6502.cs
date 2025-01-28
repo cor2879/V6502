@@ -7,12 +7,12 @@
 #pragma warning disable CS8618, CS8622
 using System;
 
-using Emulators.Nes;
+using Emulators.Cpu6502;
 using PSR = Emulators.Mso6502.ProcessorStatusRegister;
 
 namespace Emulators.Mso6502
 {
-    public class Cpu6502
+    public class Processor
     {
         #region Fields
 
@@ -44,7 +44,7 @@ namespace Emulators.Mso6502
 
         #region Constructors
 
-        public Cpu6502(VirtualConsole virtualConsole)
+        public Processor(VirtualConsole virtualConsole)
         {
             Initialize();
             _virtualConsole = virtualConsole;

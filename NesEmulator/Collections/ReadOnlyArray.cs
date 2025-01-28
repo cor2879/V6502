@@ -8,7 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Emulators.Nes
+namespace Emulators.Cpu6502
 {
     public class ReadOnlyArray<T>
         : IEnumerable<T>
