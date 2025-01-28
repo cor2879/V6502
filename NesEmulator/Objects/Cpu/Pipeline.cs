@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: Pipeline.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 using System.Collections.Generic;
 
 namespace Emulators.Mso6502

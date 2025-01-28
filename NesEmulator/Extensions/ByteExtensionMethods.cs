@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: ByteExtensionMethods.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 
 namespace Emulators.Mso6502
 {

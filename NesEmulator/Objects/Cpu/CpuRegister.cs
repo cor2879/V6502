@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: CpuRegister.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+#pragma warning disable CS8618
+using System;
 
 namespace Emulators.Mso6502
 {

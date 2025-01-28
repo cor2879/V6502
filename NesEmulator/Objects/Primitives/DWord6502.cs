@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: DWord6502.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 using System.Runtime.InteropServices;
 
 namespace Emulators.Mso6502

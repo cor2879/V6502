@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: RomParserConsole.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +13,7 @@ using Emulators.Nes.Binary;
 
 namespace RomParseConsole
 {
-    class Program
+    class RomParserConsole
     {
         static void Main(string[] args)
         {

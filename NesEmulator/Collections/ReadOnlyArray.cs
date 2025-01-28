@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: ReadOnlyArray.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 

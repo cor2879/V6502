@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: VirtualConsole.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+#pragma warning disable CS8618
+using System;
 using System.Collections.Generic;
 
 using Emulators.Mso6502;

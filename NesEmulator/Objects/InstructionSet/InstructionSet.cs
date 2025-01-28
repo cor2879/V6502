@@ -1,4 +1,10 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: InstructionSet.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -40,6 +46,7 @@ namespace Emulators.Mso6502
         private void Initialize()
         { }
 
+#pragma warning disable CS8602
         private static InstructionSet LoadInstructionSet()
         {
             IEnumerable<Type> instructionTypes = Assembly.GetExecutingAssembly().GetTypes().Where(i => i.IsSubclassOf(typeof(InstructionBase)));
@@ -55,6 +62,7 @@ namespace Emulators.Mso6502
 
             return instructionSet;
         }
+#pragma warning restore CS8602
 
         private void AddInstruction(InstructionBase instruction)
         {

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: Cpu6502.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+#pragma warning disable CS8618, CS8622
+using System;
 
 using Emulators.Nes;
 using PSR = Emulators.Mso6502.ProcessorStatusRegister;

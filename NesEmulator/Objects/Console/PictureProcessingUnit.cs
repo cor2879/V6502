@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***********************************************************************************************
+ * 
+ *  FileName: PictureProcessingUnit.cs
+ *  Copyright © 2025 Old Skool Games and Software
+ *  
+ ***********************************************************************************************/
+#pragma warning disable CS8618
+using System;
 
 using Emulators.Mso6502;
 
