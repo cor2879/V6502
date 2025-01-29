@@ -21,6 +21,7 @@
     <Compile Include="AddressingModes\Modes.cs" />
     <Compile Include="AddressingModes\ZeroPageYAddressingMode.cs" />
     <Compile Include="AddressingModes\ZeroPageXAddressingMode.cs" />
+    <Compile Include="AssemblyInfo\AssemblyInfo.cs" />
     <Compile Include="Collections\ReadOnlyArray.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\ColorDisplay.cs" />
