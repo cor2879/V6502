@@ -56,6 +56,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 
         #region Methods
 
+        public void Clear()
+        {
+            for (var i = 0; i < (SIZE >> 1); i++)
+            {
+                _innerArray[i] = 0;
+            }
+        }
+
         private static byte GetUpperByte(ushort value)
         {
             return (byte)((value & 0xFF00) >> 8);

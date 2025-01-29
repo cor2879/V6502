@@ -4,11 +4,13 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 {
     [StructLayout(LayoutKind.Explicit, Size = 2)]
+    [DebuggerDisplay("{DebuggerDisplay()}")]
     public struct DWord6502
         : IComparable<DWord6502>, IComparable<ushort>
     {
@@ -83,6 +85,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
         public int CompareTo(ushort other)
         {
             return Value - other;
+        }
+
+        public string DebuggerDisplay()
+        {
+            return $"0x{Value:X2}";
         }
 
         #endregion
