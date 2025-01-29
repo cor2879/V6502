@@ -4,9 +4,7 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
-
-namespace Emulators.Cpu6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums
 {
     public enum FullBackgroundColor
     {

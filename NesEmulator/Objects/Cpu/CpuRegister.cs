@@ -5,9 +5,10 @@
  *  
  ***********************************************************************************************/
 #pragma warning disable CS8618
-using System;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.EventHandling;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 {
     public class CpuRegister<TValue>
         : ICpuRegister<TValue>

@@ -4,12 +4,12 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Exceptions;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
 {
     public class InstructionSet
     {
@@ -17,14 +17,14 @@ namespace Emulators.Mso6502
 
         public static readonly InstructionSet Instance = LoadInstructionSet();
 
-        private Dictionary<Byte, InstructionBase> _instructionTable = new Dictionary<Byte, InstructionBase>(255);
+        private Dictionary<byte, InstructionBase> _instructionTable = new Dictionary<byte, InstructionBase>(255);
 
         #endregion
 
         #region Constructors
 
         private InstructionSet()
-        { 
+        {
             Initialize();
         }
 
@@ -38,9 +38,9 @@ namespace Emulators.Mso6502
 
         #region Methods
 
-        public void Invoke(Byte opCode, Processor cpu)
+        public void Invoke(byte opCode, Processor cpu, Memory memory)
         {
-            _instructionTable[opCode].Invoke(cpu);
+            _instructionTable[opCode].Execute(cpu);
         }
 
         private void Initialize()

@@ -6,7 +6,7 @@
  ***********************************************************************************************/
 using System;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Exceptions
 {
     public class StackOverflow6502Exception
         : Exception

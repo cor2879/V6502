@@ -4,18 +4,17 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 {
     public class Memory
-        : IEnumerable<Byte>
+        : IEnumerable<byte>
     {
         #region Fields
 
-        private const UInt16 SIZE = 0xFFFF;
+        private const ushort SIZE = 0xFFFF;
         private DWord6502[] _innerArray;
 
         #endregion
@@ -31,24 +30,24 @@ namespace Emulators.Mso6502
 
         #region Properties
 
-        public Byte this[Int32 address]
+        public byte this[int address]
         {
             get
             {
-                return ((address & 1) == 0) ?
-                        _innerArray[(address == 0) ? 0 : address >> 1].LowPart :
-                        _innerArray[(address == 1) ? 0 : (address - 1) >> 1].HighPart;
+                return (address & 1) == 0 ?
+                        _innerArray[address == 0 ? 0 : address >> 1].LowPart :
+                        _innerArray[address == 1 ? 0 : address - 1 >> 1].HighPart;
             }
 
             set
             {
                 if ((address & 1) == 0)
                 {
-                    _innerArray[(address == 0) ? 0 : address >> 1].LowPart = value;
+                    _innerArray[address == 0 ? 0 : address >> 1].LowPart = value;
                 }
                 else
                 {
-                    _innerArray[(address == 1) ? 0 : (address - 1) >> 1].HighPart = value;
+                    _innerArray[address == 1 ? 0 : address - 1 >> 1].HighPart = value;
                 }
             }
         }
@@ -57,33 +56,33 @@ namespace Emulators.Mso6502
 
         #region Methods
 
-        private static Byte GetUpperByte(UInt16 value)
+        private static byte GetUpperByte(ushort value)
         {
-            return (Byte)((value & 0xFF00) >> 8);
+            return (byte)((value & 0xFF00) >> 8);
         }
 
-        private static Byte GetLowerByte(UInt16 value)
+        private static byte GetLowerByte(ushort value)
         {
-            return (Byte)(value & 0x00FF);
+            return (byte)(value & 0x00FF);
         }
 
-        private static void SetUpperByte(ref UInt16 bucket, Byte value)
+        private static void SetUpperByte(ref ushort bucket, byte value)
         {
             bucket &= 0x00FF;
-            bucket |= (UInt16)(value << 8);
+            bucket |= (ushort)(value << 8);
         }
 
-        private static void SetLowerByte(ref UInt16 bucket, Byte value)
+        private static void SetLowerByte(ref ushort bucket, byte value)
         {
-            bucket &= (UInt16)0xFF00;
-            bucket |= (UInt16)value;
+            bucket &= 0xFF00;
+            bucket |= value;
         }
 
         #endregion
 
         #region IEnumerable<Byte> Members
 
-        public IEnumerator<Byte> GetEnumerator()
+        public IEnumerator<byte> GetEnumerator()
         {
             return new Enumerator(this);
         }
@@ -102,12 +101,12 @@ namespace Emulators.Mso6502
         #region SubClasses
 
         public sealed class Enumerator
-            : IEnumerator<Byte>
+            : IEnumerator<byte>
         {
             #region Fields
 
             private DWord6502[] _innerArray;
-            private Int32 _currentIndex;
+            private int _currentIndex;
             private bool _getUpperByte;
 
             #endregion
@@ -143,9 +142,9 @@ namespace Emulators.Mso6502
 
             public byte Current
             {
-                get 
+                get
                 {
-                    return (_getUpperByte) ?
+                    return _getUpperByte ?
                             _innerArray[_currentIndex].HighPart :
                             _innerArray[_currentIndex].LowPart;
                 }
@@ -165,11 +164,11 @@ namespace Emulators.Mso6502
 
             #region IEnumerator Members
 
-            object System.Collections.IEnumerator.Current
+            object IEnumerator.Current
             {
                 get
                 {
-                    return (_getUpperByte) ?
+                    return _getUpperByte ?
                         _innerArray[_currentIndex].HighPart :
                         _innerArray[_currentIndex].LowPart;
                 }
@@ -180,7 +179,7 @@ namespace Emulators.Mso6502
                 if (_getUpperByte)
                 {
                     _getUpperByte = !_getUpperByte;
-                    return (++_currentIndex < _innerArray.Length);
+                    return ++_currentIndex < _innerArray.Length;
                 }
                 else
                 {

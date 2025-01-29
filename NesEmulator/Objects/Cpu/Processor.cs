@@ -1,41 +1,31 @@
 ﻿/***********************************************************************************************
  * 
- *  FileName: Cpu6502.cs
+ *  FileName: Processor.cs
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-#pragma warning disable CS8618, CS8622
-using System;
+#pragma warning disable CS8618, CS8622, CS0169
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.EventHandling;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Exceptions;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
+using PSR = OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu.ProcessorStatusRegister;
 
-using Emulators.Cpu6502;
-using PSR = Emulators.Mso6502.ProcessorStatusRegister;
-
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 {
-    public class Processor
+    public class Processor : IProcessor
     {
         #region Fields
 
-        public const UInt16 RAM_ADDRESS = 0x0000;
-        public const UInt16 IO_ADDRESS = 0x2000;
-        public const UInt16 PPU_CONTROL_REGISTER_1_ADDRESS = 0x2000;
-        public const UInt16 PPU_CONTROL_REGISTER_2_ADDRESS = 0x2001;
-        public const UInt16 PPU_STATUS_REGISTER_ADDRESS = 0x2002;
-        public const UInt16 SPRITE_MEMORY_ADDRESS = 0x2003;
-        public const UInt16 SPRITE_MEMORY_DATA_ADDRESS = 0x2004;
-        public const UInt16 SPRITE_SCROLL_OFFSETS_ADDRESS = 0x2005;
-        public const UInt16 EXPANSION_MODULES_ADDRESS = 0x5000;
-        public const UInt16 CARTRIDGE_RAM_ADDRESS = 0x6000;
-        public const UInt16 CARTRIDGE_ROM_LOWER_BANK_ADDRESS = 0x8000;
-        public const UInt16 CARTRIDGE_ROM_UPPER_BANK_ADDRESS = 0xC000;
-
         private Accumulator _accumulator;
+        private long _cycleCount = 0L;
         private CpuRegister<Byte> _indexerX;
         private CpuRegister<Byte> _indexerY;
         private CpuRegister<UInt16> _stackPointer;
         private ProcessorStatusRegister _processorStatus;
         private DWord6502 _instructionPointer;
-        private VirtualConsole _virtualConsole;
+        private IVirtualConsole _virtualConsole;
         private Memory _memory;
         private UInt16[] _addressBus = new UInt16[16];
         private Pipeline _pipeline;
@@ -44,7 +34,7 @@ namespace Emulators.Mso6502
 
         #region Constructors
 
-        public Processor(VirtualConsole virtualConsole)
+        public Processor(IVirtualConsole virtualConsole)
         {
             Initialize();
             _virtualConsole = virtualConsole;
@@ -55,25 +45,15 @@ namespace Emulators.Mso6502
 
         #region Properties
 
-        public Accumulator Accumulator
-        {
-            get { return _accumulator; }
-        }
+        public Accumulator Accumulator => _accumulator;
 
-        public UInt16[] AddressBus
-        {
-            get { return _addressBus; }
-        }
+        public UInt16[] AddressBus => _addressBus;
 
-        public CpuRegister<Byte> IndexerX
-        {
-            get { return _indexerX; }
-        }
+        public CpuRegister<Byte> IndexerX => _indexerX;
 
-        public CpuRegister<Byte> IndexerY
-        {
-            get { return _indexerY; }
-        }
+        public CpuRegister<Byte> IndexerY => _indexerY;
+
+        public long CycleCount => _cycleCount;
 
         /// <summary>
         /// 
@@ -96,7 +76,7 @@ namespace Emulators.Mso6502
             get { return _processorStatus; }
         }
 
-        public VirtualConsole VirtualConsole
+        public IVirtualConsole VirtualConsole
         {
             get { return _virtualConsole; }
         }
@@ -114,7 +94,7 @@ namespace Emulators.Mso6502
         public DWord6502 ProgramCounter
         {
             get { return _instructionPointer; }
-            internal set { _instructionPointer = value; }
+            set { _instructionPointer = value; }
         }
 
         #endregion
@@ -131,7 +111,7 @@ namespace Emulators.Mso6502
             _stackPointer = new CpuRegister<UInt16>();
             _processorStatus = new ProcessorStatusRegister();
             _memory = new Memory();
-            _pipeline = new Pipeline();
+            _pipeline = new Pipeline(this);
         }
 
         internal void CompareResult(int value)
@@ -154,6 +134,11 @@ namespace Emulators.Mso6502
                 ProcessorStatus.ZeroFlag = false;
                 ProcessorStatus.CarryFlag = true;
             }
+        }
+
+        public void AddCycles(int cycles)
+        {
+            _cycleCount += cycles;
         }
 
         public void Load(CpuRegister<Byte> register, Byte value)
@@ -201,7 +186,7 @@ namespace Emulators.Mso6502
              */
             _instructionPointer.HighPart = _memory[0xFFFC];
             _instructionPointer.LowPart = _memory[0xFFFD];
-            
+
             // (UInt16)((((UInt16)_memory[0xFFFC]) << 8) + _memory[0xFFFD]);
 
             // Reset the Stack Pointer.
@@ -209,6 +194,50 @@ namespace Emulators.Mso6502
 
             // Reset the Decimal Mode Status Bit
             ProcessorStatus.DecimalFlag = false;
+        }
+
+        public async Task RunAsync(CancellationToken cancellationToken)
+        {
+            var cycleTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / Constants.Processor.NTSC_CLOCK_SPEED);
+
+            while (!cancellationToken.IsCancellationRequested) 
+            {
+                var start = DateTime.UtcNow;
+                var instruction = Step();
+
+                var elapsed = DateTime.UtcNow - start;
+                var remainingTime = cycleTime * instruction.Cycles - elapsed;
+
+                if (remainingTime > TimeSpan.Zero)
+                {
+                    await Task.Yield();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Executes a single instruction
+        /// </summary>
+        public InstructionBase Step()
+        {
+            InstructionRegistry.Instance.TryGetInstruction(_memory[++_instructionPointer], out var instruction);
+
+            if (instruction == null)
+            {
+                throw new InvalidOperationException("The next instruction could not be fetched");
+            }
+
+            _cycleCount += instruction.Cycles;
+            instruction.Execute(this);
+            return instruction;
+        }
+
+        /// <summary>
+        /// Stops continuous execution.
+        /// </summary>
+        public async Task StopAsync()
+        {
+            await this.RunAsync(new CancellationToken(true));
         }
 
         public void Interrupt()
@@ -226,7 +255,7 @@ namespace Emulators.Mso6502
                 _instructionPointer.HighPart = _memory[0xFFFE];
                 _instructionPointer.LowPart = _memory[0xFFFF];
                 ProcessorStatus.IrqDisabledFlag = true;
-                
+
                 // Allow Interrupting device to perform work...
 
                 ReturnFromInterrupt();

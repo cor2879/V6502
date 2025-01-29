@@ -7,9 +7,12 @@
 #pragma warning disable CS8618
 using System;
 
-using Emulators.Mso6502;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Collections;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
-namespace Emulators.Cpu6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Console
 {
     public class PictureProcessingUnit
     {
@@ -24,17 +27,17 @@ namespace Emulators.Cpu6502
         private static readonly ReadOnlyArray<UInt16> SPRITE_PATTERN_TABLE_ADDRESSES = new UInt16[] { 0x0000, 0x1000 };
         private static readonly ReadOnlyArray<UInt16> SCREEN_PATTERN_TABLE_ADDRESSES = new UInt16[] { 0x0000, 0x1000 };
 
-        private VirtualConsole _console;
+        private IVirtualConsole _console;
         private Memory _memory;
 
         #endregion
 
         #region Constructors
 
-        public PictureProcessingUnit(VirtualConsole console)
+        public PictureProcessingUnit(IVirtualConsole console)
         {
-            _console = new VirtualConsole();
-            Initialize();            
+            _console = console;
+            this.Initialize();
         }
 
         #endregion
@@ -53,14 +56,14 @@ namespace Emulators.Cpu6502
 
         public Byte Ppu1
         {
-            get { return CpuMemory[Processor.PPU_CONTROL_REGISTER_1_ADDRESS]; }
-            set { CpuMemory[Processor.PPU_CONTROL_REGISTER_1_ADDRESS] = value; }
+            get { return CpuMemory[Constants.Processor.PPU_CONTROL_REGISTER_1_ADDRESS]; }
+            set { CpuMemory[Constants.Processor.PPU_CONTROL_REGISTER_1_ADDRESS] = value; }
         }
 
         public Byte Ppu2
         {
-            get { return CpuMemory[Processor.PPU_CONTROL_REGISTER_2_ADDRESS]; }
-            set { CpuMemory[Processor.PPU_CONTROL_REGISTER_2_ADDRESS] = value; }
+            get { return CpuMemory[Constants.Processor.PPU_CONTROL_REGISTER_2_ADDRESS]; }
+            set { CpuMemory[Constants.Processor.PPU_CONTROL_REGISTER_2_ADDRESS] = value; }
         }
 
         public UInt16 NameTableSelect
@@ -134,7 +137,7 @@ namespace Emulators.Cpu6502
 
         private void Initialize()
         {
-             _memory = new Memory();
+            this._memory = new Memory();
         }
 
         #endregion

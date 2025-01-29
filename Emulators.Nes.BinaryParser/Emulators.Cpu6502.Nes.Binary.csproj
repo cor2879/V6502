@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>Emulators.6502.Nes.Binary</RootNamespace>
-    <AssemblyName>Emulators.6502.Nes.Binary</AssemblyName>
+    <RootNamespace>OldSkoolGamesAndSoftware.Emulators.6502.Nes.Binary</RootNamespace>
+    <AssemblyName>OldSkoolGamesAndSoftware.Emulators.6502.Nes.Binary</AssemblyName>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>

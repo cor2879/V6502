@@ -6,7 +6,7 @@
  ***********************************************************************************************/
 using System;
 
-namespace Emulators
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.EventHandling
 {
     public class EventArgs<T>
         : EventArgs

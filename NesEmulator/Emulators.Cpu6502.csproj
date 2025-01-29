@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>Emulators.Cpu6502</RootNamespace>
-    <AssemblyName>Emulators.Cpu6502</AssemblyName>
+    <RootNamespace>OldSkoolGamesAndSoftware.Emulators.Cpu6502</RootNamespace>
+    <AssemblyName>OldSkoolGamesAndSoftware.Emulators.Cpu6502</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -14,6 +14,7 @@
   <ItemGroup>
     <!-- Include source files -->
     <Compile Include="Collections\ReadOnlyArray.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Enums\ColorDisplay.cs" />
     <Compile Include="Enums\FullBackgroundColor.cs" />
     <Compile Include="Enums\ImageClip.cs" />
@@ -26,18 +27,26 @@
     <Compile Include="Exceptions\StackUnderflow6502Exception.cs" />
     <Compile Include="Extensions\ByteExtensionMethods.cs" />
     <Compile Include="Extensions\UInt16Extension.cs" />
+    <Compile Include="InstructionSet\InstructionRegistry.cs" />
     <Compile Include="Interfaces\ICpuRegister.cs" />
+    <Compile Include="Interfaces\IVirtualConsole.cs" />
+    <Compile Include="AddressingModes\AddressingModeBase.cs" />
+    <Compile Include="AddressingModes\ImmediateAddressingMode.cs" />
+    <Compile Include="AddressingModes\ZeroPageAddressingMode.cs" />
     <Compile Include="Objects\Cpu\Accumulator.cs" />
+    <Compile Include="Interfaces\IProcessor.cs" />
     <Compile Include="Objects\Cpu\Pipeline.cs" />
-    <Compile Include="Objects\InstructionSet\InstructionSet.cs" />
-    <Compile Include="Objects\InstructionSet\InstructionBase.cs" />
-    <Compile Include="Objects\Cpu\Cpu6502.cs" />
+    <Compile Include="InstructionSet\InstructionSet.cs" />
+    <Compile Include="InstructionSet\InstructionBase.cs" />
+    <Compile Include="Objects\Cpu\Processor.cs" />
     <Compile Include="Objects\Cpu\CpuRegister.cs" />
-    <Compile Include="Objects\EventArgs.cs" />
-    <Compile Include="Objects\Memory\Memory.cs" />
+    <Compile Include="EventHandling\EventArgs.cs" />
+    <Compile Include="InstructionSet\Instructions\AdcInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\LdaImmediateInstruction.cs" />
+    <Compile Include="Primitives\Memory.cs" />
     <Compile Include="Objects\Console\PictureProcessingUnit.cs" />
     <Compile Include="Objects\Cpu\ProcessorStatusRegister.cs" />
-    <Compile Include="Objects\Primitives\DWord6502.cs" />
+    <Compile Include="Primitives\DWord6502.cs" />
     <Compile Include="Objects\Rom\Header.cs" />
     <Compile Include="Objects\Rom\Rom.cs" />
     <Compile Include="Objects\Console\VirtualConsole.cs" />
@@ -45,5 +54,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Emulators.Nes.BinaryParser\Emulators.Cpu6502.Nes.Binary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Memory\" />
+    <Folder Include="Objects\Primitives\" />
   </ItemGroup>
 </Project>

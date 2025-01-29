@@ -6,7 +6,7 @@
  ***********************************************************************************************/
 using System;
 
-namespace Emulators.Cpu6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums
 {
     public enum SpriteSize 
         : byte

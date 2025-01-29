@@ -4,9 +4,9 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Collections;
 
-namespace Emulators.Cpu6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.ROM
 {
     public class RomHeader
     {

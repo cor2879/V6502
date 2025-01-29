@@ -4,10 +4,8 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-#pragma warning disable CS8618
-using System;
-
-namespace Emulators.Cpu6502
+#pragma warning disable CS8618, CS0169
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.ROM
 {
     public class Rom
     {

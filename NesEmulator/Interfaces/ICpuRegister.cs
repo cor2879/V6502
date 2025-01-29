@@ -4,9 +4,9 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.EventHandling;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces
 {
     public interface ICpuRegister<TValue>
         where TValue : struct, IComparable

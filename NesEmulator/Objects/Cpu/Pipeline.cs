@@ -4,10 +4,10 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
-using System.Collections.Generic;
 
-namespace Emulators.Mso6502
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
+
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 {
     public class Pipeline
     {
@@ -19,8 +19,16 @@ namespace Emulators.Mso6502
 
         #region Constructors
 
-        public Pipeline()
-        { }
+        public Pipeline(Processor processor)
+        { 
+            this.Processor = processor;
+        }
+
+        #endregion
+
+        #region Properties
+
+        public Processor Processor { get; private set; }
 
         #endregion
 
@@ -40,7 +48,7 @@ namespace Emulators.Mso6502
         {
             foreach (var instruction in _innerList)
             {
-                instruction.Cycle();
+                // instruction.AdvanceCycle(this.Processor);
             }
         }
 

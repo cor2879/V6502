@@ -5,14 +5,13 @@
  *  
  ***********************************************************************************************/
 #pragma warning disable CS8618
-using System;
-using System.Collections.Generic;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 
-using Emulators.Mso6502;
 
-namespace Emulators.Cpu6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Console
 {
-    public class VirtualConsole
+    public class VirtualConsole : IVirtualConsole
     {
         #region Fields
 
@@ -40,6 +39,28 @@ namespace Emulators.Cpu6502
         public PictureProcessingUnit Ppu
         {
             get { return _ppu; }
+        }
+
+        IProcessor IVirtualConsole.Cpu => throw new NotImplementedException();
+
+        public byte ReadMemory(ushort address)
+        {
+            return this.Cpu.Memory[address];
+        }
+
+        public void RenderFrame()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reset()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WriteMemory(ushort address, byte value)
+        {
+            this.Cpu.Memory[address] = value;
         }
 
         #endregion

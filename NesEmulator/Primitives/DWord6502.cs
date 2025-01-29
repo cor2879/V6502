@@ -4,14 +4,13 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
 using System.Runtime.InteropServices;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 {
     [StructLayout(LayoutKind.Explicit, Size = 2)]
     public struct DWord6502
-        : IComparable<DWord6502>, IComparable<UInt16>
+        : IComparable<DWord6502>, IComparable<ushort>
     {
         #region Fields
 
@@ -19,22 +18,22 @@ namespace Emulators.Mso6502
         /// The full 16-bit value
         /// </summary>
         [FieldOffset(0)]
-        public UInt16 Value;
+        public ushort Value;
 
         [FieldOffset(0)]
-        public Int16 SignedValue;
+        public short SignedValue;
 
         /// <summary>
         /// The Low Order Byte.
         /// </summary>
         [FieldOffset(0)]
-        public Byte LowPart;
+        public byte LowPart;
 
         /// <summary>
         /// The High Order Byte.
         /// </summary>
         [FieldOffset(1)]
-        public Byte HighPart;
+        public byte HighPart;
 
         #endregion
 
@@ -50,9 +49,9 @@ namespace Emulators.Mso6502
             {
                 return CompareTo((DWord6502)obj);
             }
-            else if (obj is UInt16)
+            else if (obj is ushort)
             {
-                return CompareTo((UInt16)obj);
+                return CompareTo((ushort)obj);
             }
             else
             {
@@ -65,7 +64,7 @@ namespace Emulators.Mso6502
             return Value - other.Value;
         }
 
-        public int CompareTo(UInt16 other)
+        public int CompareTo(ushort other)
         {
             return Value - other;
         }
@@ -74,7 +73,7 @@ namespace Emulators.Mso6502
 
         #region Operators
 
-        public static implicit operator DWord6502(UInt16 value)
+        public static implicit operator DWord6502(ushort value)
         {
             var programCounter = new DWord6502()
             {
@@ -84,7 +83,7 @@ namespace Emulators.Mso6502
             return programCounter;
         }
 
-        public static implicit operator UInt16(DWord6502 value)
+        public static implicit operator ushort(DWord6502 value)
         {
             return value.Value;
         }

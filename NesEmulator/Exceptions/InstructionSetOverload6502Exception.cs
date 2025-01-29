@@ -5,8 +5,9 @@
  *  
  ***********************************************************************************************/
 using System;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Exceptions
 {
     public class InstructionSetOverload6502Exception
         : Exception

@@ -4,9 +4,7 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
-using System;
-
-namespace Emulators.Mso6502
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 {
     public class ProcessorStatusRegister
         : CpuRegister<Byte>
