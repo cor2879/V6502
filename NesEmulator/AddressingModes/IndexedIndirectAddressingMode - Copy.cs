@@ -18,10 +18,5 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
             ushort baseAddr = Read16(cpu, zeroPageAddr);
             cpu.Memory[baseAddr + cpu.IndexerY.Value] = value;
         }
-
-        private DWord6502 Read16(IProcessor cpu, byte address)
-        {
-            return new DWord6502(cpu.Memory[address], cpu.Memory[(address + 1) & 0xFF]);
-        }
     }
 }

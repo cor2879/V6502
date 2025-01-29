@@ -7,19 +7,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
     {
         public override byte Fetch(IProcessor cpu)
         {
-            var address = GetNextAddress(cpu);
+            var address = cpu.Memory[cpu.ProgramCounter++];
             return cpu.Memory[address];
         }
 
         public override void Store(IProcessor cpu, byte value)
         {
-            var address = GetNextAddress(cpu);
+            var address = cpu.Memory[cpu.ProgramCounter++];
             cpu.Memory[address] = value;
-        }
-
-        private ushort GetNextAddress(IProcessor cpu)
-        {
-            return cpu.Memory[cpu.ProgramCounter++];
         }
     }
 }
