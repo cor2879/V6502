@@ -72,6 +72,5 @@
 
   <ItemGroup>
     <Folder Include="Memory\" />
-    <Folder Include="Objects\Primitives\" />
   </ItemGroup>
 </Project>

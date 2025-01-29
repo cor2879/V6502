@@ -44,6 +44,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
             _innerList.Remove(instruction);
         }
 
+        public void Clear()
+        {
+            _innerList.Clear();
+        }
+
         public void Cycle()
         {
             foreach (var instruction in _innerList)

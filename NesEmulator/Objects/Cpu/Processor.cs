@@ -151,6 +151,27 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
             register.Value = Memory[Address];
         }
 
+        public async Task LoadProgramAsync(byte[] program, ushort startAddress = 0x0600, bool autoRun = false)
+        {
+            if (program is null || program.Length == 0)
+            {
+                throw new ArgumentException($"{nameof(program)} cannot be null or empty.", nameof(program));
+            }
+
+            for (var i = 0; i < program.Length; i++)
+            {
+                Memory[startAddress + i] = program[i];
+            }
+
+            ProgramCounter = new DWord6502(startAddress);
+            Pipeline.Clear();
+
+            if (autoRun)
+            {
+                await RunAsync(new CancellationToken());
+            }
+        }
+
         public void Store(CpuRegister<Byte> register, UInt16 Address)
         {
             Memory[Address] = register.Value;
@@ -220,7 +241,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
         /// </summary>
         public InstructionBase Step()
         {
-            InstructionRegistry.Instance.TryGetInstruction(_memory[++_instructionPointer], out var instruction);
+            InstructionRegistry.Instance.TryGetInstruction(_memory[_instructionPointer++], out var instruction);
 
             if (instruction == null)
             {

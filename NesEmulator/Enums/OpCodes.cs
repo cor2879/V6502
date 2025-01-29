@@ -2,6 +2,20 @@
 {
     public enum OpCodes : byte
     {
+        // Arithmetic Instructions
+        AdcImmediate = 0x69,
+        AdcZeroPage = 0x65,
+        AdcZeroPageX = 0x75,
+
+        SBC_Immediate = 0xE9,
+        SBC_ZeroPage = 0xE5,
+
+        // Branch Instructions
+        BeqRelative = 0xF0,
+        BneRelative = 0xD0,
+        BplRelative = 0x10,
+
+        // Load Instructions
         LdaAbsolute = 0xAD,
         LdaAbsoluteX = 0xBD,
         LdaAbsoluteY = 0xB9,
@@ -20,6 +34,11 @@
         LdyImmediate = 0xA0,
         LdyZeroPage = 0xA4,
         LdyZeroPageX = 0xB4,
+
+        // Other
+        NOP = 0xEA,
+
+        // Store Instructions
         StaAbsolute = 0x8D,
         StaAbsoluteX = 0x9D,
         StaAbsoluteY = 0x99,

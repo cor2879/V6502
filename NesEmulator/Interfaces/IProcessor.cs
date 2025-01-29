@@ -50,6 +50,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces
 
         void Load(CpuRegister<byte> register, ushort Address);
 
+        Task LoadProgramAsync(byte[] program, ushort startAddress = 0x0600, bool autoRun = false);
+
         void NonMaskableInterrupt();
 
         byte PeekStack();
