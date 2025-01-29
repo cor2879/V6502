@@ -13,6 +13,14 @@
 
   <ItemGroup>
     <!-- Include source files -->
+    <Compile Include="AddressingModes\IndexedIndirectAddressingMode - Copy.cs" />
+    <Compile Include="AddressingModes\IndexedIndirectAddressingMode.cs" />
+    <Compile Include="AddressingModes\AbsoluteAddressingMode.cs" />
+    <Compile Include="AddressingModes\AbsoluteYAddressingMode.cs" />
+    <Compile Include="AddressingModes\AbsoluteXAddressingMode.cs" />
+    <Compile Include="AddressingModes\Modes.cs" />
+    <Compile Include="AddressingModes\ZeroPageYAddressingMode.cs" />
+    <Compile Include="AddressingModes\ZeroPageXAddressingMode.cs" />
     <Compile Include="Collections\ReadOnlyArray.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\ColorDisplay.cs" />

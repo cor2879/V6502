@@ -1,9 +1,8 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
-using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 {
-    public class ZeroPageAddressingMode : AddressingModeBase
+    public class ZeroPageYAddressingMode : AddressingModeBase
     {
         public override byte Fetch(IProcessor cpu)
         {
@@ -19,7 +18,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 
         private ushort GetNextAddress(IProcessor cpu)
         {
-            return cpu.Memory[cpu.ProgramCounter++];
+            return (ushort)((cpu.Memory[cpu.ProgramCounter++] + cpu.IndexerY.Value) & 0xFF);
         }
     }
 }

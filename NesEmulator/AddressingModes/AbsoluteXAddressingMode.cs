@@ -1,18 +1,19 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
-using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 {
-    public class ImmediateAddressingMode : AddressingModeBase
+    public class AbsoluteXAddressingMode : AddressingModeBase
     {
         public override byte Fetch(IProcessor cpu)
         {
-            return cpu.Memory[cpu.ProgramCounter++];
+            var address = Read16(cpu);
+            return cpu.Memory[address + cpu.IndexerX.Value];
         }
 
         public override void Store(IProcessor cpu, byte value)
         {
-            throw new InvalidOperationException("Immediate mode is Read Only");
+            var address = Read16(cpu);
+            cpu.Memory[address + cpu.IndexerX.Value] = value;
         }
     }
 }

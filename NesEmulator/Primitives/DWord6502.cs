@@ -39,6 +39,22 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 
         #region Constructors
 
+        public DWord6502()
+        {
+            this.Value = 0;
+        }
+
+        public DWord6502(ushort value)
+        {
+            this.Value = value;
+        }
+
+        public DWord6502(byte lowByte, byte highByte)
+        {
+            this.LowPart = lowByte;
+            this.HighPart = highByte;
+        }
+
         #endregion
 
         #region Methods
