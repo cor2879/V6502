@@ -8,8 +8,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
 {
     public class AdcInstruction : InstructionBase
     {
-        public AdcInstruction(IProcessor cpu, AddressingModeBase addressingMode, byte length)
-            : base(cpu, 0x69, "ADC", addressingMode, length, 2)
+        public AdcInstruction(AddressingModeBase addressingMode, byte length)
+            : base(0x69, "ADC", addressingMode, length, 2)
         { }
 
         protected override void PerformExecution(IProcessor processor)

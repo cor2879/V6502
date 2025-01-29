@@ -26,6 +26,7 @@
     <Compile Include="Enums\ColorDisplay.cs" />
     <Compile Include="Enums\FullBackgroundColor.cs" />
     <Compile Include="Enums\ImageClip.cs" />
+    <Compile Include="Enums\OpCodes.cs" />
     <Compile Include="Enums\ScreenDisplay.cs" />
     <Compile Include="Enums\SpriteClip.cs" />
     <Compile Include="Enums\SpriteDisplay.cs" />
@@ -36,6 +37,11 @@
     <Compile Include="Extensions\ByteExtensionMethods.cs" />
     <Compile Include="Extensions\UInt16Extension.cs" />
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
+    <Compile Include="InstructionSet\Instructions\LdyInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\LdxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\StxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\StyInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\StaInstruction.cs" />
     <Compile Include="Interfaces\ICpuRegister.cs" />
     <Compile Include="Interfaces\IVirtualConsole.cs" />
     <Compile Include="AddressingModes\AddressingModeBase.cs" />
@@ -50,7 +56,7 @@
     <Compile Include="Objects\Cpu\CpuRegister.cs" />
     <Compile Include="EventHandling\EventArgs.cs" />
     <Compile Include="InstructionSet\Instructions\AdcInstruction.cs" />
-    <Compile Include="InstructionSet\Instructions\LdaImmediateInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\LdaInstruction.cs" />
     <Compile Include="Primitives\Memory.cs" />
     <Compile Include="Objects\Console\PictureProcessingUnit.cs" />
     <Compile Include="Objects\Cpu\ProcessorStatusRegister.cs" />

@@ -25,7 +25,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
 
         public byte CurrentCycle { get; private set; } = 0;
 
-        public InstructionBase(IProcessor cpu, byte opCode, string mnemonic, AddressingModeBase mode, byte length, byte cycles)
+        public InstructionBase(byte opCode, string mnemonic, AddressingModeBase mode, byte length, byte cycles)
         {
             OpCode = opCode;
             Mode = mode;
