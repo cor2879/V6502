@@ -43,6 +43,15 @@
         // Other
         NOP = 0xEA,
 
+        SbcAbsolute = 0xED,
+        SbcAbsoluteX = 0xFD,
+        SbcAbsoluteY = 0xF9,
+        SbcImmediate = 0xE9,
+        SbcIndexedIndirect = 0xE1,  // (Indirect, X)
+        SbcIndirectIndexed = 0xF1,   // (Indirect), Y
+        SbcZeroPage = 0xE5,
+        SbcZeroPageX = 0xF5,
+
         // Store Instructions
         StaAbsolute = 0x8D,
         StaAbsoluteX = 0x9D,

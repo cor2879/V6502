@@ -40,6 +40,7 @@
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
     <Compile Include="InstructionSet\Instructions\LdyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\SbcInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StaInstruction.cs" />
