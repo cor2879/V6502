@@ -45,6 +45,12 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AndIndirectIndexed, new AndInstruction((byte)OpCodes.AndIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.AndZeroPage, new AndInstruction((byte)OpCodes.AndZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AndZeroPageX, new AndInstruction((byte)OpCodes.AndZeroPageX, Modes.ZeroPageX, 2, 4) },
+                { OpCodes.DecAbsolute, new DecInstruction((byte)OpCodes.DecAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.DecAbsoluteX, new DecInstruction((byte)OpCodes.DecAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                { OpCodes.DecZeroPage, new DecInstruction((byte)OpCodes.DecZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.DecZeroPageX, new DecInstruction((byte)OpCodes.DecZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.DexImplied, new DexInstruction((byte)OpCodes.DexImplied, Modes.Implied, 1, 2) },
+                { OpCodes.DeyImplied, new DeyInstruction((byte)OpCodes.DeyImplied, Modes.Implied, 1, 2) },
                 { OpCodes.EorAbsolute, new EorInstruction((byte)OpCodes.EorAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.EorAbsoluteX, new EorInstruction((byte)OpCodes.EorAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
                 { OpCodes.EorAbsoluteY, new EorInstruction((byte)OpCodes.EorAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
@@ -53,6 +59,12 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.EorIndirectIndexed, new EorInstruction((byte)OpCodes.EorIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.EorZeroPage, new EorInstruction((byte)OpCodes.EorZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.EorZeroPageX, new EorInstruction((byte)OpCodes.EorZeroPageX, Modes.ZeroPageX, 2, 4) },
+                { OpCodes.IncAbsolute, new IncInstruction((byte)OpCodes.IncAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.IncAbsoluteX, new IncInstruction((byte)OpCodes.IncAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                { OpCodes.IncZeroPage, new IncInstruction((byte)OpCodes.IncZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.IncZeroPageX, new IncInstruction((byte)OpCodes.IncZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.InxImplied, new InxInstruction((byte)OpCodes.InxImplied, Modes.Implied, 1, 2) },
+                { OpCodes.InyImplied, new InyInstruction((byte)OpCodes.InyImplied, Modes.Implied, 1, 2) },
                 { OpCodes.LdaAbsolute, new LdaInstruction((byte)OpCodes.LdaAbsolute, Modes.Absolute, 3, 4 ) },
                 { OpCodes.LdaAbsoluteX, new LdaInstruction((byte)OpCodes.LdaAbsoluteX, Modes.AbsoluteX, 3, 4) },
                 { OpCodes.LdaAbsoluteY, new LdaInstruction((byte)OpCodes.LdaAbsoluteY, Modes.AbsoluteY, 3, 4) },

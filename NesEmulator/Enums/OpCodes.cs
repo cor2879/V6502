@@ -27,6 +27,18 @@
         BneRelative = 0xD0,
         BplRelative = 0x10,
 
+        // DEC (Decrement Memory)
+        DecAbsolute = 0xCE,
+        DecAbsoluteX = 0xDE,
+        DecZeroPage = 0xC6,
+        DecZeroPageX = 0xD6,
+
+        // DEX (Decrement X Register)
+        DexImplied = 0xCA,
+
+        // DEY (Decrement Y Register)
+        DeyImplied = 0x88,
+
         // EOR (Logical XOR)
         EorAbsolute = 0x4D,
         EorAbsoluteX = 0x5D,
@@ -36,6 +48,18 @@
         EorIndirectIndexed = 0x51,   // (Indirect), Y
         EorZeroPage = 0x45,
         EorZeroPageX = 0x55,
+
+        // INC (Increment Memory)
+        IncAbsolute = 0xEE,
+        IncAbsoluteX = 0xFE,
+        IncZeroPage = 0xE6,
+        IncZeroPageX = 0xF6,
+
+        // INX (Increment X Register)
+        InxImplied = 0xE8,
+
+        // INY (Increment Y Register)
+        InyImplied = 0xC8,
 
         // Load Instructions
         LdaAbsolute = 0xAD,
