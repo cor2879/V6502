@@ -8,6 +8,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502
 {
     public static class Constants
     {
+        public const byte NegativeFlag = 0x80;
+
         public static class Processor
         {
             public const UInt16 RAM_ADDRESS = 0x0000;

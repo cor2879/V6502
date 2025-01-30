@@ -12,13 +12,30 @@
         AdcZeroPage = 0x65,
         AdcZeroPageX = 0x75,
 
-        SBC_Immediate = 0xE9,
-        SBC_ZeroPage = 0xE5,
+        // AND (Logical AND)
+        AndAbsolute = 0x2D,
+        AndAbsoluteX = 0x3D,
+        AndAbsoluteY = 0x39,
+        AndImmediate = 0x29,
+        AndIndexedIndirect = 0x21,  // (Indirect, X)
+        AndIndirectIndexed = 0x31,  // (Indirect), Y
+        AndZeroPage = 0x25,
+        AndZeroPageX = 0x35,
 
         // Branch Instructions
         BeqRelative = 0xF0,
         BneRelative = 0xD0,
         BplRelative = 0x10,
+
+        // EOR (Logical XOR)
+        EorAbsolute = 0x4D,
+        EorAbsoluteX = 0x5D,
+        EorAbsoluteY = 0x59,
+        EorImmediate = 0x49,
+        EorIndexedIndirect = 0x41,  // (Indirect, X)
+        EorIndirectIndexed = 0x51,   // (Indirect), Y
+        EorZeroPage = 0x45,
+        EorZeroPageX = 0x55,
 
         // Load Instructions
         LdaAbsolute = 0xAD,
@@ -43,6 +60,17 @@
         // Other
         NOP = 0xEA,
 
+        // ORA (Logical OR)
+        OraAbsolute = 0x0D,
+        OraAbsoluteX = 0x1D,
+        OraAbsoluteY = 0x19,
+        OraImmediate = 0x09,
+        OraIndexedIndirect = 0x01,  // (Indirect, X)
+        OraIndirectIndexed = 0x11,  // (Indirect), Y
+        OraZeroPage = 0x05,
+        OraZeroPageX = 0x15,
+
+        // SBC Instructions (Subtract)
         SbcAbsolute = 0xED,
         SbcAbsoluteX = 0xFD,
         SbcAbsoluteY = 0xF9,

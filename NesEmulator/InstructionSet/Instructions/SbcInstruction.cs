@@ -27,9 +27,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
             // Update Flags
             cpu.ProcessorStatus.CarryFlag = result > 0xFF;
             cpu.ProcessorStatus.ZeroFlag = cpu.Accumulator.Value == 0;
-            cpu.ProcessorStatus.NegativeFlag = (cpu.Accumulator.Value & 0x80) != 0;
-            cpu.ProcessorStatus.OverflowFlag = ((cpu.Accumulator.Value ^ value) & 0x80) == 0 &&
-                                               ((cpu.Accumulator.Value ^ result) & 0x80) != 0;
+            cpu.ProcessorStatus.NegativeFlag = (cpu.Accumulator.Value & Constants.NegativeFlag) != 0;
+            cpu.ProcessorStatus.OverflowFlag = ((cpu.Accumulator.Value ^ value) & Constants.NegativeFlag) == 0 &&
+                                               ((cpu.Accumulator.Value ^ result) & Constants.NegativeFlag) != 0;
 
             // Increment the program counter
             cpu.ProgramCounter += Length;

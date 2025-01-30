@@ -38,8 +38,11 @@
     <Compile Include="Extensions\ByteExtensionMethods.cs" />
     <Compile Include="Extensions\UInt16Extension.cs" />
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
+    <Compile Include="InstructionSet\Instructions\AndInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\EorInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\OraInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SbcInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StyInstruction.cs" />
