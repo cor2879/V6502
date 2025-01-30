@@ -22,6 +22,15 @@
         AndZeroPage = 0x25,
         AndZeroPageX = 0x35,
 
+        Bcc = 0x90, // Branch on Carry Clear
+        Bcs = 0xB0, // Branch on Carry Set
+        Beq = 0xF0, // Branch on Equal (Zero Flag Set)
+        Bmi = 0x30, // Branch on Minus (Negative Flag Set)
+        Bne = 0xD0, // Branch on Not Equal (Zero Flag Clear)
+        Bpl = 0x10, // Branch on Plus (Negative Flag Clear)
+        Bvc = 0x50, // Branch on Overflow Clear
+        Bvs = 0x70,  // Branch on Overflow Set
+
         // CMP (Compare Accumulator)
         CmpAbsolute = 0xCD,
         CmpAbsoluteX = 0xDD,
@@ -41,11 +50,6 @@
         CpyAbsolute = 0xCC,
         CpyImmediate = 0xC0,
         CpyZeroPage = 0xC4,
-
-        // Branch Instructions
-        BeqRelative = 0xF0,
-        BneRelative = 0xD0,
-        BplRelative = 0x10,
 
         // DEC (Decrement Memory)
         DecAbsolute = 0xCE,

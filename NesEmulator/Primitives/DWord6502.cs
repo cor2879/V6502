@@ -111,6 +111,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
             return value.Value;
         }
 
+        public static DWord6502 operator +(DWord6502 left, sbyte right)
+        {
+            return new DWord6502((ushort)(left.Value + right));
+        }
+
         #endregion
     }
 }

@@ -20,6 +20,7 @@
     <Compile Include="AddressingModes\AbsoluteYAddressingMode.cs" />
     <Compile Include="AddressingModes\AbsoluteXAddressingMode.cs" />
     <Compile Include="AddressingModes\Modes.cs" />
+    <Compile Include="AddressingModes\RelativeAddressingMode.cs" />
     <Compile Include="AddressingModes\ZeroPageYAddressingMode.cs" />
     <Compile Include="AddressingModes\ZeroPageXAddressingMode.cs" />
     <Compile Include="AssemblyInfo\AssemblyInfo.cs" />
@@ -40,6 +41,15 @@
     <Compile Include="Extensions\UInt16Extension.cs" />
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
     <Compile Include="InstructionSet\Instructions\AndInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BvsInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BvcInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BplInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BneInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BmiInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BeqInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BcsInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BccInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\BranchInstructionBase.cs" />
     <Compile Include="InstructionSet\Instructions\CmpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\CpxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\CpyInstruction.cs" />

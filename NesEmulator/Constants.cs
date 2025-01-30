@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502
 {
     public static class Constants
     {
-        public const byte NegativeFlag = 0x80;
+        public const byte NEGATIVE_FLAG = 0x80;
+        public const ushort PAGE_BOUNDARY = 0xFF00;
 
         public static class Processor
         {

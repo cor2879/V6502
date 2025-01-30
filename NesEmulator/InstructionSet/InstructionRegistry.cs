@@ -44,6 +44,15 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AndIndirectIndexed, new AndInstruction((byte)OpCodes.AndIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.AndZeroPage, new AndInstruction((byte)OpCodes.AndZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AndZeroPageX, new AndInstruction((byte)OpCodes.AndZeroPageX, Modes.ZeroPageX, 2, 4) },
+                { OpCodes.Bcc, new BccInstruction() },
+                { OpCodes.Bcs, new BcsInstruction() },
+                { OpCodes.Beq, new BeqInstruction() },
+                { OpCodes.Bmi, new BmiInstruction() },
+                { OpCodes.Bne, new BneInstruction() },
+                { OpCodes.Bpl, new BplInstruction() },
+                { OpCodes.Bvc, new BvcInstruction() },
+                { OpCodes.Bvs, new BvsInstruction() },
+
                 // CMP (Compare Accumulator)
                 { OpCodes.CmpAbsolute, new CmpInstruction((byte)OpCodes.CmpAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.CmpAbsoluteX, new CmpInstruction((byte)OpCodes.CmpAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed

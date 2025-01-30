@@ -16,7 +16,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
 
             // Update processor status flags
             cpu.ProcessorStatus.ZeroFlag = cpu.Memory[address] == 0;
-            cpu.ProcessorStatus.NegativeFlag = (cpu.Memory[address] & Constants.NegativeFlag) != 0;
+            cpu.ProcessorStatus.NegativeFlag = (cpu.Memory[address] & Constants.NEGATIVE_FLAG) != 0;
 
             // Advance Program Counter
             cpu.ProgramCounter += Length;

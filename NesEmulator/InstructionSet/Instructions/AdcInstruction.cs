@@ -50,9 +50,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
             processor.Accumulator.Value = result.LowPart;
             processor.ProcessorStatus.CarryFlag = result > 0xFF;
             processor.ProcessorStatus.ZeroFlag = processor.Accumulator.Value == 0;
-            processor.ProcessorStatus.NegativeFlag = (processor.Accumulator.Value & Constants.NegativeFlag) != 0;
-            processor.ProcessorStatus.OverflowFlag = ((accumulator ^ value) & Constants.NegativeFlag) == 0 &&
-                                                     ((accumulator ^ result.LowPart) & Constants.NegativeFlag) != 0;
+            processor.ProcessorStatus.NegativeFlag = (processor.Accumulator.Value & Constants.NEGATIVE_FLAG) != 0;
+            processor.ProcessorStatus.OverflowFlag = ((accumulator ^ value) & Constants.NEGATIVE_FLAG) == 0 &&
+                                                     ((accumulator ^ result.LowPart) & Constants.NEGATIVE_FLAG) != 0;
 
             processor.ProgramCounter += Length;
         }

@@ -15,7 +15,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
             cpu.IndexerX.Value = value;
 
             cpu.ProcessorStatus.ZeroFlag = (value == 0);
-            cpu.ProcessorStatus.NegativeFlag = (value & Constants.NegativeFlag) != 0;
+            cpu.ProcessorStatus.NegativeFlag = (value & Constants.NEGATIVE_FLAG) != 0;
         }
     }
 }

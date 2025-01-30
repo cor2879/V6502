@@ -9,6 +9,7 @@
         public static readonly ImpliedAddressingMode Implied = new ImpliedAddressingMode();
         public static readonly IndexedIndirectAddressingMode IndexedIndirect = new IndexedIndirectAddressingMode();
         public static readonly IndirectIndexedAddressingMode IndirectIndexed = new IndirectIndexedAddressingMode();
+        public static readonly RelativeAddressingMode Relative = new RelativeAddressingMode();
         public static readonly ZeroPageAddressingMode ZeroPage = new ZeroPageAddressingMode();
         public static readonly ZeroPageXAddressingMode ZeroPageX = new ZeroPageXAddressingMode();
         public static readonly ZeroPageYAddressingMode ZeroPageY = new ZeroPageYAddressingMode();
