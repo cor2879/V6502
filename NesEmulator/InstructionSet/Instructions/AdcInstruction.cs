@@ -1,37 +1,59 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
-using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
-using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
 {
     public class AdcInstruction : InstructionBase
     {
-        public AdcInstruction(AddressingModeBase addressingMode, byte length)
-            : base(0x69, "ADC", addressingMode, length, 2)
+        public AdcInstruction(byte opCode, AddressingModeBase addressingMode, byte length, byte cycles)
+            : base(opCode, "ADC", addressingMode, length, cycles)
         { }
 
         protected override void PerformExecution(IProcessor processor)
         {
-            // Read the immediate value from memory using the ProgramCounter
-            ushort address = processor.ProgramCounter;
-            byte value = processor.Memory[address];
+            var value = Mode.Fetch(processor);
+            var carryIn = processor.ProcessorStatus.CarryFlag ? 1 : 0;
+            var accumulator = processor.Accumulator.Value;
+            DWord6502 result;
 
-            // Perform the addition with carry
-            ushort result = (ushort)(processor.Accumulator.Value + value + (processor.ProcessorStatus.CarryFlag ? 1 : 0));
+            if (processor.ProcessorStatus.DecimalFlag)
+            {
+                // Perform BCD addition
+                var lowNibble = (accumulator & 0x0F) + (value & 0x0F) + carryIn;
 
-            // Update the accumulator with the lower byte of the result
-            processor.Accumulator.Value = (byte)(result & 0xFF);
+                if (lowNibble > 9)
+                {
+                    lowNibble += 6;
+                }
 
-            // Update processor status flags
+                var highNibble = (accumulator & 0xF0) + (value & 0xF0);
+
+                if (lowNibble > 0x0F)
+                {
+                    highNibble += 0x10;
+                }
+
+                if (highNibble > 0x90)
+                {
+                    highNibble += 0x60;
+                }
+
+                result = (DWord6502)(highNibble + (lowNibble & 0x0F));
+            }
+            else
+            {
+                // Standard binary addition
+                result = (DWord6502)(accumulator + value + carryIn);
+            }
+
+            processor.Accumulator.Value = result.LowPart;
             processor.ProcessorStatus.CarryFlag = result > 0xFF;
             processor.ProcessorStatus.ZeroFlag = processor.Accumulator.Value == 0;
             processor.ProcessorStatus.NegativeFlag = (processor.Accumulator.Value & 0x80) != 0;
-            processor.ProcessorStatus.OverflowFlag = ((processor.Accumulator.Value ^ value) & 0x80) == 0 &&
-                                                     ((processor.Accumulator.Value ^ result) & 0x80) != 0;
+            processor.ProcessorStatus.OverflowFlag = ((accumulator ^ value) & 0x80) == 0 &&
+                                                     ((accumulator ^ result.LowPart) & 0x80) != 0;
 
-            // Increment the program counter
             processor.ProgramCounter += Length;
         }
     }

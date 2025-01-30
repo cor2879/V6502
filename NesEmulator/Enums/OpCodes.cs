@@ -3,7 +3,12 @@
     public enum OpCodes : byte
     {
         // Arithmetic Instructions
+        AdcAbsolute = 0x6D,
+        AdcAbsoluteX = 0x7D,
+        AdcAbsoluteY = 0x79,
         AdcImmediate = 0x69,
+        AdcIndexedIndirect = 0x61,
+        AdcIndirectIndexed = 0x71,
         AdcZeroPage = 0x65,
         AdcZeroPageX = 0x75,
 
