@@ -40,6 +40,9 @@
     <Compile Include="Extensions\UInt16Extension.cs" />
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
     <Compile Include="InstructionSet\Instructions\AndInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\CmpInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\CpxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\CpyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DecInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DexInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DeyInstruction.cs" />

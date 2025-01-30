@@ -22,6 +22,26 @@
         AndZeroPage = 0x25,
         AndZeroPageX = 0x35,
 
+        // CMP (Compare Accumulator)
+        CmpAbsolute = 0xCD,
+        CmpAbsoluteX = 0xDD,
+        CmpAbsoluteY = 0xD9,
+        CmpImmediate = 0xC9,
+        CmpIndexedIndirect = 0xC1,
+        CmpIndirectIndexed = 0xD1,
+        CmpZeroPage = 0xC5,
+        CmpZeroPageX = 0xD5,
+
+        // CPX (Compare X Register)
+        CpxAbsolute = 0xEC,
+        CpxImmediate = 0xE0,
+        CpxZeroPage = 0xE4,
+
+        // CPY (Compare Y Register)
+        CpyAbsolute = 0xCC,
+        CpyImmediate = 0xC0,
+        CpyZeroPage = 0xC4,
+
         // Branch Instructions
         BeqRelative = 0xF0,
         BneRelative = 0xD0,

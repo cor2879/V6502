@@ -1,7 +1,6 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions;
-using System.Security.Cryptography;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
 {
@@ -45,6 +44,26 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AndIndirectIndexed, new AndInstruction((byte)OpCodes.AndIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.AndZeroPage, new AndInstruction((byte)OpCodes.AndZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AndZeroPageX, new AndInstruction((byte)OpCodes.AndZeroPageX, Modes.ZeroPageX, 2, 4) },
+                // CMP (Compare Accumulator)
+                { OpCodes.CmpAbsolute, new CmpInstruction((byte)OpCodes.CmpAbsolute, Modes.Absolute, 3, 4) },
+                { OpCodes.CmpAbsoluteX, new CmpInstruction((byte)OpCodes.CmpAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
+                { OpCodes.CmpAbsoluteY, new CmpInstruction((byte)OpCodes.CmpAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
+                { OpCodes.CmpImmediate, new CmpInstruction((byte)OpCodes.CmpImmediate, Modes.Immediate, 2, 2) },
+                { OpCodes.CmpIndexedIndirect, new CmpInstruction((byte)OpCodes.CmpIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
+                { OpCodes.CmpIndirectIndexed, new CmpInstruction((byte)OpCodes.CmpIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
+                { OpCodes.CmpZeroPage, new CmpInstruction((byte)OpCodes.CmpZeroPage, Modes.ZeroPage, 2, 3) },
+                { OpCodes.CmpZeroPageX, new CmpInstruction((byte)OpCodes.CmpZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // CPX (Compare X Register)
+                { OpCodes.CpxAbsolute, new CpxInstruction((byte)OpCodes.CpxAbsolute, Modes.Absolute, 3, 4) },
+                { OpCodes.CpxImmediate, new CpxInstruction((byte)OpCodes.CpxImmediate, Modes.Immediate, 2, 2) },
+                { OpCodes.CpxZeroPage, new CpxInstruction((byte)OpCodes.CpxZeroPage, Modes.ZeroPage, 2, 3) },
+
+                // CPY (Compare Y Register)
+                { OpCodes.CpyAbsolute, new CpyInstruction((byte)OpCodes.CpyAbsolute, Modes.Absolute, 3, 4) },
+                { OpCodes.CpyImmediate, new CpyInstruction((byte)OpCodes.CpyImmediate, Modes.Immediate, 2, 2) },
+                { OpCodes.CpyZeroPage, new CpyInstruction((byte)OpCodes.CpyZeroPage, Modes.ZeroPage, 2, 3) },
+
                 { OpCodes.DecAbsolute, new DecInstruction((byte)OpCodes.DecAbsolute, Modes.Absolute, 3, 6) },
                 { OpCodes.DecAbsoluteX, new DecInstruction((byte)OpCodes.DecAbsoluteX, Modes.AbsoluteX, 3, 7) },
                 { OpCodes.DecZeroPage, new DecInstruction((byte)OpCodes.DecZeroPage, Modes.ZeroPage, 2, 5) },
