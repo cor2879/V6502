@@ -13,6 +13,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 
         public const Byte NegativeBit = 0x80;
         public const Byte OverflowBit = 0x40;
+        public const Byte Bit5 = 0x20;
         public const Byte BrkBit = 0x10;
         public const Byte DecimalModeBit = 0x08;
         public const Byte IrqDisabledBit = 0x04;

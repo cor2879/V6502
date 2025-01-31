@@ -9,6 +9,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 
         public abstract void Store(IProcessor cpu, byte value);
 
+        public virtual DWord6502 FetchDWord(IProcessor cpu)
+        {
+            return Read16(cpu);
+        }
+
         protected static DWord6502 Read16(IProcessor cpu)
         {
             return new DWord6502(cpu.Memory[cpu.ProgramCounter++], cpu.Memory[cpu.ProgramCounter++]);

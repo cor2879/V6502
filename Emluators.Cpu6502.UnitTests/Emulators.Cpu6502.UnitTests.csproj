@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <AssemblyName>OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests</AssemblyName>
+    <DefaultNamespace>OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests</DefaultNamespace>
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>

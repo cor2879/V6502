@@ -85,6 +85,9 @@
         // INY (Increment Y Register)
         InyImplied = 0xC8,
 
+        // JUMP (to Subroutine)
+        Jsr = 0x20,
+
         // Load Instructions
         LdaAbsolute = 0xAD,
         LdaAbsoluteX = 0xBD,
@@ -117,6 +120,16 @@
         OraIndirectIndexed = 0x11,  // (Indirect), Y
         OraZeroPage = 0x05,
         OraZeroPageX = 0x15,
+
+        // Push and Pull
+        Pha = 0x48,
+        Php = 0x08,
+        Pla = 0x68,
+        Plp = 0x28,
+
+        // Return (from Subroutine or Interrupt)
+        Rts = 0x60,
+        Rti = 0x40,
 
         // SBC Instructions (Subtract)
         SbcAbsolute = 0xED,

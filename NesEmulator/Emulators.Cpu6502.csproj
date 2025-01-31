@@ -60,9 +60,16 @@
     <Compile Include="InstructionSet\Instructions\IncInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\InXInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\InyInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\JsrInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\OraInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\PlpInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\PlaInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\PhpInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\PhaInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\RtiInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\RtsInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SbcInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StyInstruction.cs" />

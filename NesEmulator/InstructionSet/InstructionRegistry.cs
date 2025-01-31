@@ -93,6 +93,10 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.IncZeroPageX, new IncInstruction((byte)OpCodes.IncZeroPageX, Modes.ZeroPageX, 2, 6) },
                 { OpCodes.InxImplied, new InxInstruction((byte)OpCodes.InxImplied, Modes.Implied, 1, 2) },
                 { OpCodes.InyImplied, new InyInstruction((byte)OpCodes.InyImplied, Modes.Implied, 1, 2) },
+
+                // Jump to Subroutine
+                { OpCodes.Jsr, new JsrInstruction() },
+
                 { OpCodes.LdaAbsolute, new LdaInstruction((byte)OpCodes.LdaAbsolute, Modes.Absolute, 3, 4 ) },
                 { OpCodes.LdaAbsoluteX, new LdaInstruction((byte)OpCodes.LdaAbsoluteX, Modes.AbsoluteX, 3, 4) },
                 { OpCodes.LdaAbsoluteY, new LdaInstruction((byte)OpCodes.LdaAbsoluteY, Modes.AbsoluteY, 3, 4) },
@@ -119,6 +123,17 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.OraIndirectIndexed, new OraInstruction((byte)OpCodes.OraIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.OraZeroPage, new OraInstruction((byte)OpCodes.OraZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.OraZeroPageX, new OraInstruction((byte)OpCodes.OraZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // Push and Pull
+                { OpCodes.Pha, new PhaInstruction() },
+                { OpCodes.Php, new PhpInstruction() },
+                { OpCodes.Pla, new PlaInstruction() },
+                { OpCodes.Plp, new PlpInstruction() },
+
+                // Return from Subroutine\Interupt
+                { OpCodes.Rts, new RtsInstruction() },
+                { OpCodes.Rti, new RtiInstruction() },
+
                 { OpCodes.SbcImmediate, new SbcInstruction((byte)OpCodes.SbcImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.SbcZeroPage, new SbcInstruction((byte)OpCodes.SbcZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.SbcZeroPageX, new SbcInstruction((byte)OpCodes.SbcZeroPageX, Modes.ZeroPageX, 2, 4) },

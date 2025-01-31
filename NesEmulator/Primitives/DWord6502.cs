@@ -61,6 +61,10 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 
         #region Methods
 
+        public override string ToString()
+        {
+            return $"0x{Value:X4}";
+        }
         public int CompareTo(object obj)
         {
             if (obj is DWord6502)
