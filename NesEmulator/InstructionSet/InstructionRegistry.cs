@@ -1,6 +1,7 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions.OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
 {
@@ -44,6 +45,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AndIndirectIndexed, new AndInstruction((byte)OpCodes.AndIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.AndZeroPage, new AndInstruction((byte)OpCodes.AndZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AndZeroPageX, new AndInstruction((byte)OpCodes.AndZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // Arithmetic Shift Left
+                { OpCodes.AslAccumulator, new AslInstruction((byte)OpCodes.AslAccumulator, Modes.Accumulator, 1, 2) },
+                { OpCodes.AslZeroPage, new AslInstruction((byte)OpCodes.AslZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.AslZeroPageX, new AslInstruction((byte)OpCodes.AslZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.AslAbsolute, new AslInstruction((byte)OpCodes.AslAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.AslAbsoluteX, new AslInstruction((byte)OpCodes.AslAbsoluteX, Modes.AbsoluteX, 3, 7) },
+
                 { OpCodes.Bcc, new BccInstruction() },
                 { OpCodes.Bcs, new BcsInstruction() },
                 { OpCodes.Beq, new BeqInstruction() },
@@ -115,6 +124,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.LdyImmediate, new LdyInstruction((byte)OpCodes.LdyImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.LdyZeroPage, new LdyInstruction((byte)OpCodes.LdyZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.LdyZeroPageX, new LdyInstruction((byte)OpCodes.LdyZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // Logical Shift Right
+                { OpCodes.LsrAccumulator, new LsrInstruction((byte)OpCodes.LsrAccumulator, Modes.Accumulator, 1, 2) },
+                { OpCodes.LsrZeroPage, new LsrInstruction((byte)OpCodes.LsrZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.LsrZeroPageX, new LsrInstruction((byte)OpCodes.LsrZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.LsrAbsolute, new LsrInstruction((byte)OpCodes.LsrAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.LsrAbsoluteX, new LsrInstruction((byte)OpCodes.LsrAbsoluteX, Modes.AbsoluteX, 3, 7) },
+
                 { OpCodes.OraAbsolute, new OraInstruction((byte)OpCodes.OraAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.OraAbsoluteX, new OraInstruction((byte)OpCodes.OraAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
                 { OpCodes.OraAbsoluteY, new OraInstruction((byte)OpCodes.OraAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
@@ -129,6 +146,20 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.Php, new PhpInstruction() },
                 { OpCodes.Pla, new PlaInstruction() },
                 { OpCodes.Plp, new PlpInstruction() },
+
+                // Rotate Left
+                { OpCodes.RolAccumulator, new RolInstruction((byte)OpCodes.RolAccumulator, Modes.Accumulator, 1, 2) },
+                { OpCodes.RolZeroPage, new RolInstruction((byte)OpCodes.RolZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.RolZeroPageX, new RolInstruction((byte)OpCodes.RolZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.RolAbsolute, new RolInstruction((byte)OpCodes.RolAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.RolAbsoluteX, new RolInstruction((byte)OpCodes.RolAbsoluteX, Modes.AbsoluteX, 3, 7) },
+
+                // Rotate Right
+                { OpCodes.RorAccumulator, new RorInstruction((byte)OpCodes.RorAccumulator, Modes.Accumulator, 1, 2) },
+                { OpCodes.RorZeroPage, new RorInstruction((byte)OpCodes.RorZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.RorZeroPageX, new RorInstruction((byte)OpCodes.RorZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.RorAbsolute, new RorInstruction((byte)OpCodes.RorAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.RorAbsoluteX, new RorInstruction((byte)OpCodes.RorAbsoluteX, Modes.AbsoluteX, 3, 7) },
 
                 // Return from Subroutine\Interupt
                 { OpCodes.Rts, new RtsInstruction() },

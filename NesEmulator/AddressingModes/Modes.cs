@@ -5,6 +5,7 @@
         public static readonly AbsoluteAddressingMode Absolute = new AbsoluteAddressingMode();
         public static readonly AbsoluteXAddressingMode AbsoluteX = new AbsoluteXAddressingMode();
         public static readonly AbsoluteYAddressingMode AbsoluteY = new AbsoluteYAddressingMode();
+        public static readonly AccumulatorAddressingMode Accumulator = new AccumulatorAddressingMode();
         public static readonly ImmediateAddressingMode Immediate = new ImmediateAddressingMode();
         public static readonly ImpliedAddressingMode Implied = new ImpliedAddressingMode();
         public static readonly IndexedIndirectAddressingMode IndexedIndirect = new IndexedIndirectAddressingMode();

@@ -22,6 +22,13 @@
         AndZeroPage = 0x25,
         AndZeroPageX = 0x35,
 
+        // Arithmetic Shift Left
+        AslAbsolute = 0x0E,
+        AslAbsoluteX = 0x1E,
+        AslAccumulator = 0x0A,
+        AslZeroPage = 0x06,
+        AslZeroPageX = 0x16,
+
         Bcc = 0x90, // Branch on Carry Clear
         Bcs = 0xB0, // Branch on Carry Set
         Beq = 0xF0, // Branch on Equal (Zero Flag Set)
@@ -108,6 +115,13 @@
         LdyZeroPage = 0xA4,
         LdyZeroPageX = 0xB4,
 
+        // Logical Shift Right
+        LsrAbsolute = 0x4E,
+        LsrAbsoluteX = 0x5E,
+        LsrAccumulator = 0x4A,
+        LsrZeroPage = 0x46,
+        LsrZeroPageX = 0x56,
+
         // Other
         NOP = 0xEA,
 
@@ -126,6 +140,19 @@
         Php = 0x08,
         Pla = 0x68,
         Plp = 0x28,
+
+        // Rotate Instructions
+        RolAbsolute = 0x2E,
+        RolAbsoluteX = 0x3E,
+        RolAccumulator = 0x2A,
+        RolZeroPage = 0x26,
+        RolZeroPageX = 0x36,
+
+        RorAbsolute = 0x6E,
+        RorAbsoluteX = 0x7E,
+        RorAccumulator = 0x6A,
+        RorZeroPage = 0x66,
+        RorZeroPageX = 0x76,
 
         // Return (from Subroutine or Interrupt)
         Rts = 0x60,

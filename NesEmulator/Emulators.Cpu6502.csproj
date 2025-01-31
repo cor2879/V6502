@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <!-- Include source files -->
+    <Compile Include="AddressingModes\AccumulatorAddressingMode.cs" />
     <Compile Include="AddressingModes\ImpliedAddressingMode.cs" />
     <Compile Include="AddressingModes\IndexedIndirectAddressingMode - Copy.cs" />
     <Compile Include="AddressingModes\IndexedIndirectAddressingMode.cs" />
@@ -41,6 +42,7 @@
     <Compile Include="Extensions\UInt16Extension.cs" />
     <Compile Include="InstructionSet\InstructionRegistry.cs" />
     <Compile Include="InstructionSet\Instructions\AndInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\AslInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\BvsInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\BvcInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\BplInstruction.cs" />
@@ -63,11 +65,14 @@
     <Compile Include="InstructionSet\Instructions\JsrInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LdxInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\LsrInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\OraInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\PlpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\PlaInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\PhpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\PhaInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\RolInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\RorInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\RtiInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\RtsInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SbcInstruction.cs" />
