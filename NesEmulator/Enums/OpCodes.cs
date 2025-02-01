@@ -62,13 +62,9 @@
         DecAbsolute = 0xCE,
         DecAbsoluteX = 0xDE,
         DecZeroPage = 0xC6,
-        DecZeroPageX = 0xD6,
-
-        // DEX (Decrement X Register)
-        DexImplied = 0xCA,
-
-        // DEY (Decrement Y Register)
-        DeyImplied = 0x88,
+        DecZeroPageX = 0xD6, 
+        Dex = 0xCA,
+        Dey = 0x88,
 
         // EOR (Logical XOR)
         EorAbsolute = 0x4D,
@@ -85,12 +81,8 @@
         IncAbsoluteX = 0xFE,
         IncZeroPage = 0xE6,
         IncZeroPageX = 0xF6,
-
-        // INX (Increment X Register)
-        InxImplied = 0xE8,
-
-        // INY (Increment Y Register)
-        InyImplied = 0xC8,
+        Inx = 0xE8,
+        Iny = 0xC8,
 
         // JUMP (to Subroutine)
         Jsr = 0x20,

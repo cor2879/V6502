@@ -23,7 +23,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         public async Task InxIncrementsXRegister()
         {
             _cpu.IndexerX.Value = 0x10;
-            await _cpu.LoadProgramAsync([(byte)OpCodes.InxImplied]);
+            await _cpu.LoadProgramAsync([(byte)OpCodes.Inx]);
 
             _cpu.Step();
 
@@ -36,7 +36,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         public async Task DexDecrementsXRegister()
         {
             _cpu.IndexerX.Value = 0x01;
-            await _cpu.LoadProgramAsync([(byte)OpCodes.DexImplied]);
+            await _cpu.LoadProgramAsync([(byte)OpCodes.Dex]);
 
             _cpu.Step();
 

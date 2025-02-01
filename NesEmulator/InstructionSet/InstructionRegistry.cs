@@ -86,8 +86,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.DecAbsoluteX, new DecInstruction((byte)OpCodes.DecAbsoluteX, Modes.AbsoluteX, 3, 7) },
                 { OpCodes.DecZeroPage, new DecInstruction((byte)OpCodes.DecZeroPage, Modes.ZeroPage, 2, 5) },
                 { OpCodes.DecZeroPageX, new DecInstruction((byte)OpCodes.DecZeroPageX, Modes.ZeroPageX, 2, 6) },
-                { OpCodes.DexImplied, new DexInstruction((byte)OpCodes.DexImplied, Modes.Implied, 1, 2) },
-                { OpCodes.DeyImplied, new DeyInstruction((byte)OpCodes.DeyImplied, Modes.Implied, 1, 2) },
+                { OpCodes.Dex, new DexInstruction((byte)OpCodes.Dex, Modes.Implied, 1, 2) },
+                { OpCodes.Dey, new DeyInstruction((byte)OpCodes.Dey, Modes.Implied, 1, 2) },
                 { OpCodes.EorAbsolute, new EorInstruction((byte)OpCodes.EorAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.EorAbsoluteX, new EorInstruction((byte)OpCodes.EorAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
                 { OpCodes.EorAbsoluteY, new EorInstruction((byte)OpCodes.EorAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
@@ -100,8 +100,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.IncAbsoluteX, new IncInstruction((byte)OpCodes.IncAbsoluteX, Modes.AbsoluteX, 3, 7) },
                 { OpCodes.IncZeroPage, new IncInstruction((byte)OpCodes.IncZeroPage, Modes.ZeroPage, 2, 5) },
                 { OpCodes.IncZeroPageX, new IncInstruction((byte)OpCodes.IncZeroPageX, Modes.ZeroPageX, 2, 6) },
-                { OpCodes.InxImplied, new InxInstruction((byte)OpCodes.InxImplied, Modes.Implied, 1, 2) },
-                { OpCodes.InyImplied, new InyInstruction((byte)OpCodes.InyImplied, Modes.Implied, 1, 2) },
+                { OpCodes.Inx, new InxInstruction((byte)OpCodes.Inx, Modes.Implied, 1, 2) },
+                { OpCodes.Iny, new InyInstruction((byte)OpCodes.Iny, Modes.Implied, 1, 2) },
 
                 // Jump to Subroutine
                 { OpCodes.Jsr, new JsrInstruction() },
