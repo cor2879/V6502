@@ -27,6 +27,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502
             public const UInt16 CARTRIDGE_ROM_LOWER_BANK_ADDRESS = 0x8000;
             public const UInt16 CARTRIDGE_ROM_UPPER_BANK_ADDRESS = 0xC000;
             public const UInt32 NTSC_CLOCK_SPEED = 1_790_000;
+            public const UInt16 STACK_POINTER_START_ADDRESS = 0x01FF;
         }
     }
 }

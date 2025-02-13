@@ -62,6 +62,13 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.Bvc, new BvcInstruction() },
                 { OpCodes.Bvs, new BvsInstruction() },
 
+                // BIT
+                { OpCodes.BitZeroPage, new BitInstruction((byte)OpCodes.BitZeroPage, Modes.ZeroPage, 2, 3) },
+                { OpCodes.BitAbsolute, new BitInstruction((byte)OpCodes.BitAbsolute, Modes.Absolute, 3, 4) },
+
+                // BRK
+                { OpCodes.Brk, new BrkInstruction() },
+
                 // CMP (Compare Accumulator)
                 { OpCodes.CmpAbsolute, new CmpInstruction((byte)OpCodes.CmpAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.CmpAbsoluteX, new CmpInstruction((byte)OpCodes.CmpAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
@@ -131,6 +138,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.LsrZeroPageX, new LsrInstruction((byte)OpCodes.LsrZeroPageX, Modes.ZeroPageX, 2, 6) },
                 { OpCodes.LsrAbsolute, new LsrInstruction((byte)OpCodes.LsrAbsolute, Modes.Absolute, 3, 6) },
                 { OpCodes.LsrAbsoluteX, new LsrInstruction((byte)OpCodes.LsrAbsoluteX, Modes.AbsoluteX, 3, 7) },
+
+                // NO OP
+                { OpCodes.NOP, new NopInstruction((byte)OpCodes.NOP, Modes.Implied, 1, 2) },
 
                 { OpCodes.OraAbsolute, new OraInstruction((byte)OpCodes.OraAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.OraAbsoluteX, new OraInstruction((byte)OpCodes.OraAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed

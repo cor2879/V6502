@@ -38,6 +38,25 @@
         Bvc = 0x50, // Branch on Overflow Clear
         Bvs = 0x70,  // Branch on Overflow Set
 
+        // BIT (Bit Test)
+        BitZeroPage = 0x24,
+        BitAbsolute = 0x2C,
+
+        // BRK (Break / Software Interrupt)
+        Brk = 0x00,
+
+        // CLC (Clear Carry Flag)
+        CLC = 0x18,
+
+        // CLD (Clear Decimal Mode)
+        CLD = 0xD8,
+
+        // CLI (Clear Interrupt Disable)
+        CLI = 0x58,
+
+        // CLV (Clear Overflow Flag)
+        CLV = 0xB8,
+
         // CMP (Compare Accumulator)
         CmpAbsolute = 0xCD,
         CmpAbsoluteX = 0xDD,
@@ -159,6 +178,15 @@
         SbcIndirectIndexed = 0xF1,   // (Indirect), Y
         SbcZeroPage = 0xE5,
         SbcZeroPageX = 0xF5,
+
+        // SEC (Set Carry Flag)
+        SEC = 0x38,
+
+        // SED (Set Decimal Mode)
+        SED = 0xF8,
+
+        // SEI (Set Interrupt Disable)
+        SEI = 0x78,
 
         // Store Instructions
         StaAbsolute = 0x8D,

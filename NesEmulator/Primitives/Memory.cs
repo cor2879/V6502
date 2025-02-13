@@ -14,7 +14,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
     {
         #region Fields
 
-        private const ushort SIZE = 0xFFFF;
+        private const ushort SIZE = 0x10000 >> 1;
         private DWord6502[] _innerArray;
 
         #endregion
@@ -23,7 +23,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
 
         public Memory()
         {
-            _innerArray = new DWord6502[SIZE >> 1];
+            _innerArray = new DWord6502[SIZE];
         }
 
         #endregion

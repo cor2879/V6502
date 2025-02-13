@@ -120,6 +120,16 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives
             return new DWord6502((ushort)(left.Value + right));
         }
 
+        public static DWord6502 operator >>(DWord6502 left, int right)
+        {
+            return new DWord6502((ushort)(left.Value >> right));
+        }
+
+        public static DWord6502 operator <<(DWord6502 left, int right)
+        {
+            return new DWord6502(((ushort)(left.Value << right)));
+        }
+
         #endregion
     }
 }

@@ -4,12 +4,16 @@
  *  Copyright © 2025 Old Skool Games and Software
  *  
  ***********************************************************************************************/
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
+
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
 {
     public class ProcessorStatusRegister
         : CpuRegister<Byte>
     {
         #region Fields
+
+        public static readonly DWord6502 InterruptVector = 0xFFFE;
 
         public const Byte NegativeBit = 0x80;
         public const Byte OverflowBit = 0x40;
