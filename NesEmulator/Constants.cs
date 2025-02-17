@@ -1,4 +1,5 @@
-﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
+﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;

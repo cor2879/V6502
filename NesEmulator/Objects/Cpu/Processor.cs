@@ -5,11 +5,13 @@
  *  
  ***********************************************************************************************/
 #pragma warning disable CS8618, CS8622, CS0169
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.EventHandling;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Exceptions;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
+using System.Diagnostics;
 using PSR = OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu.ProcessorStatusRegister;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
@@ -269,44 +271,40 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu
              */
             if (!ProcessorStatus.IrqDisabledFlag)
             {
-                PushStack(_instructionPointer.HighPart);
-                PushStack(_instructionPointer.LowPart);
-                PushStack(ProcessorStatus.Value);
+                PushStack(ProgramCounter.HighPart);
+                PushStack(ProgramCounter.LowPart);
 
-                _instructionPointer.HighPart = _memory[0xFFFE];
-                _instructionPointer.LowPart = _memory[0xFFFF];
-                ProcessorStatus.IrqDisabledFlag = true;
+                // Clear Break flag, ensure Bit 5 is set
+                var statusToPush = (byte)(ProcessorStatus.Value & ~ProcessorStatusRegister.BrkBit | ProcessorStatusRegister.Bit5);
+                PushStack(statusToPush);
 
-                // Allow Interrupting device to perform work...
+                ProcessorStatus.IrqDisabledFlag = true; // Disable further IRQs
 
-                ReturnFromInterrupt();
-
-                // (UInt16)((((UInt16)_memory[0xFFFE]) << 8) + _memory[0xFFFF]); 
-
+                // Load new PC from IRQ Vector
+                ProgramCounter = AddressingModeBase.Read16(this, 0xFFFE);
             }
 
         }
 
         public void NonMaskableInterrupt()
         {
-            PushStack(_instructionPointer.HighPart);
-            PushStack(_instructionPointer.LowPart);
-            PushStack(ProcessorStatus.Value);
+            PushStack(ProgramCounter.HighPart);
+            PushStack(ProgramCounter.LowPart);
+
+            // Clear Break flag, ensure Bit5 is set
+            var statusToPush = (byte)(ProcessorStatus.Value & ~ProcessorStatusRegister.BrkBit | ProcessorStatusRegister.Bit5);
+
+            Debug.WriteLine($"{nameof(NonMaskableInterrupt)}:: Computed Status to Push: 0x{statusToPush:X2}");
+
+            PushStack(statusToPush);
+            ProcessorStatus.IrqDisabledFlag = true;
 
             /* NMI is a demand, rather than request, for interrupt.
              * The Program Counter is loaded with the contents of
              * memory at 0xFFFA and 0xFFFB
              * (6502 Software Design, Scanlon, p. 21)
              */
-            _instructionPointer.HighPart = _memory[0xFFFA];
-            _instructionPointer.LowPart = _memory[0xFFFB];
-            ProcessorStatus.IrqDisabledFlag = true;
-
-            // Allow Interrupting device to perform work...
-
-            ReturnFromInterrupt();
-
-            // (UInt16)((((UInt16)_memory[0xFFFA]) << 8) + _memory[0xFFFB]); 
+            ProgramCounter = AddressingModeBase.Read16(this, 0xFFFA);
         }
 
         public void ReturnFromInterrupt()
