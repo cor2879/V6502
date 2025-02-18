@@ -4,14 +4,14 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions
 {
-    public class NopInstruction : InstructionBase
+    public class DopInstruction : InstructionBase
     {
-        public NopInstruction(AddressingModeBase mode, byte length, byte cycles)
-            : base((byte)OpCodes.NOP, "NOP", mode, length, cycles) { }
+        public DopInstruction(AddressingModeBase mode, byte size, byte cycles)
+            : base((byte)OpCodes.DOP, "DOP", mode, size, cycles) { }
 
         protected override void PerformExecution(IProcessor cpu)
         {
-            // No operation
+            // DOP behaves like NOP but sometimes has memory side effects.
         }
     }
 }

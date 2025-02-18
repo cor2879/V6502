@@ -85,6 +85,9 @@
         Dex = 0xCA,
         Dey = 0x88,
 
+        // Double NOP
+        DOP = 0x80,
+
         // EOR (Logical XOR)
         EorAbsolute = 0x4D,
         EorAbsoluteX = 0x5D,
@@ -137,7 +140,7 @@
         LsrZeroPage = 0x46,
         LsrZeroPageX = 0x56,
 
-        // Other
+        // NO OP
         NOP = 0xEA,
 
         // ORA (Logical OR)
@@ -206,5 +209,8 @@
         StyAbsolute = 0x8C,
         StyZeroPage = 0x84,
         StyZeroPageX = 0x94,
+
+        // Triple NOP
+        TOP = 0x0C
     };
 }

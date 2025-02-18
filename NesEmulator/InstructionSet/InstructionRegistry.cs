@@ -101,6 +101,10 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.DecZeroPageX, new DecInstruction((byte)OpCodes.DecZeroPageX, Modes.ZeroPageX, 2, 6) },
                 { OpCodes.Dex, new DexInstruction((byte)OpCodes.Dex, Modes.Implied, 1, 2) },
                 { OpCodes.Dey, new DeyInstruction((byte)OpCodes.Dey, Modes.Implied, 1, 2) },
+
+                // Double NOP
+                { OpCodes.DOP, new DopInstruction(Modes.Immediate, 2, 3) },
+
                 { OpCodes.EorAbsolute, new EorInstruction((byte)OpCodes.EorAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.EorAbsoluteX, new EorInstruction((byte)OpCodes.EorAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
                 { OpCodes.EorAbsoluteY, new EorInstruction((byte)OpCodes.EorAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
@@ -150,7 +154,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.LsrAbsoluteX, new LsrInstruction((byte)OpCodes.LsrAbsoluteX, Modes.AbsoluteX, 3, 7) },
 
                 // NO OP
-                { OpCodes.NOP, new NopInstruction((byte)OpCodes.NOP, Modes.Implied, 1, 2) },
+                { OpCodes.NOP, new NopInstruction(Modes.Implied, 1, 2) },
 
                 { OpCodes.OraAbsolute, new OraInstruction((byte)OpCodes.OraAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.OraAbsoluteX, new OraInstruction((byte)OpCodes.OraAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
@@ -214,6 +218,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.StyAbsolute, new StyInstruction((byte)OpCodes.StyAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.StyZeroPage, new StyInstruction((byte)OpCodes.StyZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.StyZeroPageX, new StyInstruction((byte)OpCodes.StyZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // Triple NOP
+                { OpCodes.TOP, new TopInstruction(Modes.Absolute, 3, 4) },
             };
 
             return instructions;

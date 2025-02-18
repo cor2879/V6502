@@ -65,6 +65,7 @@
     <Compile Include="InstructionSet\Instructions\DecInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DexInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DeyInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\DopInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\EorInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\IncInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\InXInstruction.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="InstructionSet\Instructions\StxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\StaInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\TopInstruction.cs" />
     <Compile Include="Interfaces\ICpuRegister.cs" />
     <Compile Include="Interfaces\IVirtualConsole.cs" />
     <Compile Include="AddressingModes\AddressingModeBase.cs" />
