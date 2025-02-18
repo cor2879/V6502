@@ -91,6 +91,7 @@
     <Compile Include="InstructionSet\Instructions\RtsInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SaxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SbcInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\SbxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SecInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SedInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\SeiInstruction.cs" />

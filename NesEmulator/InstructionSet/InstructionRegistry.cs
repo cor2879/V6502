@@ -39,6 +39,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AdcIndexedIndirect, new AdcInstruction((byte)OpCodes.AdcIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
                 { OpCodes.AdcIndirectIndexed, new AdcInstruction((byte)OpCodes.AdcIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
 
+                // ALR (AND SHIFT RIGHT)
+                { OpCodes.Alr, new AlrInstruction(Modes.Immediate, 2, 3) },
+
                 // ANC
                 { OpCodes.Anc, new AncInstruction(Modes.Immediate, 2, 3) },
 
@@ -51,6 +54,9 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AndIndirectIndexed, new AndInstruction((byte)OpCodes.AndIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.AndZeroPage, new AndInstruction((byte)OpCodes.AndZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AndZeroPageX, new AndInstruction((byte)OpCodes.AndZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // ARR (AND ROTATE RIGHT)
+                { OpCodes.Arr, new ArrInstruction(Modes.Immediate, 2, 3) },
 
                 // Arithmetic Shift Left
                 { OpCodes.AslAccumulator, new AslInstruction((byte)OpCodes.AslAccumulator, Modes.Accumulator, 1, 2) },
@@ -133,6 +139,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 // Jump to Subroutine
                 { OpCodes.Jsr, new JsrInstruction() },
 
+                // LAX Instructions (Load Accumulator and X)
+                { OpCodes.LaxImmediate, new LaxInstruction((byte)OpCodes.LaxImmediate, Modes.Immediate, 2, 2) },
+                { OpCodes.LaxZeroPage, new LaxInstruction((byte)OpCodes.LaxZeroPage, Modes.ZeroPage, 2, 3) },
+                { OpCodes.LaxZeroPageY, new LaxInstruction((byte)OpCodes.LaxZeroPageY, Modes.ZeroPageY, 2, 4) },
+                { OpCodes.LaxAbsolute, new LaxInstruction((byte)OpCodes.LaxAbsolute, Modes.Absolute, 3, 4) },
+                { OpCodes.LaxAbsoluteY, new LaxInstruction((byte)OpCodes.LaxAbsoluteY, Modes.AbsoluteY, 3, 4) }, // Extra cycle if page boundary crossed
+                { OpCodes.LaxIndexedIndirect, new LaxInstruction((byte)OpCodes.LaxIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
+
                 { OpCodes.LdaAbsolute, new LdaInstruction((byte)OpCodes.LdaAbsolute, Modes.Absolute, 3, 4 ) },
                 { OpCodes.LdaAbsoluteX, new LdaInstruction((byte)OpCodes.LdaAbsoluteX, Modes.AbsoluteX, 3, 4) },
                 { OpCodes.LdaAbsoluteY, new LdaInstruction((byte)OpCodes.LdaAbsoluteY, Modes.AbsoluteY, 3, 4) },
@@ -204,6 +218,15 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.SbcAbsoluteY, new SbcInstruction((byte)OpCodes.SbcAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
                 { OpCodes.SbcIndexedIndirect, new SbcInstruction((byte)OpCodes.SbcIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
                 { OpCodes.SbcIndirectIndexed, new SbcInstruction((byte)OpCodes.SbcIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
+
+                // SAX Instructions (Store A & X)
+                { OpCodes.SaxZeroPage, new SaxInstruction((byte)OpCodes.SaxZeroPage, Modes.ZeroPage, 2, 3) },
+                { OpCodes.SaxZeroPageY, new SaxInstruction((byte)OpCodes.SaxZeroPageY, Modes.ZeroPageY, 2, 4) },
+                { OpCodes.SaxAbsolute, new SaxInstruction((byte)OpCodes.SaxAbsolute, Modes.Absolute, 3, 4) },
+                { OpCodes.SaxIndexedIndirect, new SaxInstruction((byte)OpCodes.SaxIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
+
+                // SBX
+                { OpCodes.Sbx, new SbxInstruction() },
 
                 // SE (Set Status)
                 { OpCodes.SEC, new SecInstruction() },

@@ -1,10 +1,12 @@
 ﻿#pragma warning disable CS8618
 using Moq;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using System.Diagnostics;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
 {
@@ -32,7 +34,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
 
             _cpu.Accumulator.Value = expectedStartingAccumulatorValue;
             _cpu.Memory[0x200] = expectedStartingMemoryValue;
-            var instruction = new AncInstruction(Modes.Immediate, 2, 3);
+            InstructionRegistry.Instance.TryGetInstruction(OpCodes.Anc, out var instruction);
             instruction.Execute(_cpu);
 
             Assert.AreEqual(expectedFinalAccumulatorValue, _cpu.Accumulator.Value, "ANC should perform AND operation and store result in Accumulator.");

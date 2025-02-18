@@ -20,5 +20,15 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
         {
             return (ushort)((cpu.Memory[cpu.ProgramCounter++] + cpu.IndexerY.Value) & 0xFF);
         }
+
+        internal static ushort PeekNextAddress(IProcessor cpu)
+        {
+            return (ushort)((cpu.Memory[cpu.ProgramCounter + 1] + cpu.IndexerY.Value) & 0xFF);
+        }
+
+        internal static ushort PeekCurrentAddress(IProcessor cpu)
+        {
+            return (ushort)((cpu.Memory[cpu.ProgramCounter] + cpu.IndexerY.Value) & 0xFF);
+        }
     }
 }

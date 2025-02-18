@@ -123,7 +123,12 @@
         Jsr = 0x20,
 
         // Load A and X
-        Lax = 0xA7,
+        LaxAbsolute = 0xAF,
+        LaxAbsoluteY = 0xBF,
+        LaxImmediate = 0xAB,
+        LaxIndexedIndirect = 0xA3,
+        LaxZeroPage = 0xA7,
+        LaxZeroPageY = 0xB7,
 
         // Load Instructions
         LdaAbsolute = 0xAD,
@@ -189,7 +194,10 @@
         Rti = 0x40,
 
         // Store A and X
-        Sax = 0x87,
+        SaxAbsolute = 0x8F,
+        SaxIndexedIndirect = 0x83,
+        SaxZeroPage = 0x87,
+        SaxZeroPageY = 0x97,
 
         // SBC Instructions (Subtract)
         SbcAbsolute = 0xED,
@@ -200,6 +208,9 @@
         SbcIndirectIndexed = 0xF1,   // (Indirect), Y
         SbcZeroPage = 0xE5,
         SbcZeroPageX = 0xF5,
+
+        // Subtract A and X
+        Sbx = 0xCB,
 
         // SEC (Set Carry Flag)
         SEC = 0x38,
