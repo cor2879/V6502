@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿#pragma warning disable CS8618
+using Moq;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;

@@ -69,6 +69,12 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 // BRK
                 { OpCodes.Brk, new BrkInstruction() },
 
+                // CL (Clear Status)
+                { OpCodes.CLC, new ClcInstruction() },
+                { OpCodes.CLD, new CldInstruction() },
+                { OpCodes.CLI, new CliInstruction() },
+                { OpCodes.CLV, new ClvInstruction() },
+
                 // CMP (Compare Accumulator)
                 { OpCodes.CmpAbsolute, new CmpInstruction((byte)OpCodes.CmpAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.CmpAbsoluteX, new CmpInstruction((byte)OpCodes.CmpAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed
@@ -109,6 +115,10 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.IncZeroPageX, new IncInstruction((byte)OpCodes.IncZeroPageX, Modes.ZeroPageX, 2, 6) },
                 { OpCodes.Inx, new InxInstruction((byte)OpCodes.Inx, Modes.Implied, 1, 2) },
                 { OpCodes.Iny, new InyInstruction((byte)OpCodes.Iny, Modes.Implied, 1, 2) },
+
+                // JMP
+                { OpCodes.JmpA, new JmpInstruction((byte)OpCodes.JmpA, Modes.Absolute) },
+                { OpCodes.JmpI, new JmpInstruction((byte)OpCodes.JmpI, Modes.Indirect) },
 
                 // Jump to Subroutine
                 { OpCodes.Jsr, new JsrInstruction() },
@@ -175,6 +185,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.Rts, new RtsInstruction() },
                 { OpCodes.Rti, new RtiInstruction() },
 
+                // SB (Subtract)
                 { OpCodes.SbcImmediate, new SbcInstruction((byte)OpCodes.SbcImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.SbcZeroPage, new SbcInstruction((byte)OpCodes.SbcZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.SbcZeroPageX, new SbcInstruction((byte)OpCodes.SbcZeroPageX, Modes.ZeroPageX, 2, 4) },
@@ -183,6 +194,13 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.SbcAbsoluteY, new SbcInstruction((byte)OpCodes.SbcAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
                 { OpCodes.SbcIndexedIndirect, new SbcInstruction((byte)OpCodes.SbcIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
                 { OpCodes.SbcIndirectIndexed, new SbcInstruction((byte)OpCodes.SbcIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
+
+                // SE (Set Status)
+                { OpCodes.SEC, new SecInstruction() },
+                { OpCodes.SED, new SedInstruction() },
+                { OpCodes.SEI, new SeiInstruction() },
+
+                // ST (Store)
                 { OpCodes.StaAbsolute, new StaInstruction((byte)OpCodes.StaAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.StaAbsoluteX, new StaInstruction((byte)OpCodes.StaAbsoluteX, Modes.AbsoluteX, 3, 5) },
                 { OpCodes.StaAbsoluteY, new StaInstruction((byte)OpCodes.StaAbsoluteY, Modes.AbsoluteY, 3, 5) },

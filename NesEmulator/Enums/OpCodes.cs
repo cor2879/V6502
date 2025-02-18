@@ -103,6 +103,10 @@
         Inx = 0xE8,
         Iny = 0xC8,
 
+        // JMP
+        JmpA = 0x4C,
+        JmpI = 0x6C,
+
         // JUMP (to Subroutine)
         Jsr = 0x20,
 
