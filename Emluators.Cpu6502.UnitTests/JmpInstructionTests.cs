@@ -1,4 +1,5 @@
-﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
+﻿#pragma warning disable CS8618
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet.Instructions;

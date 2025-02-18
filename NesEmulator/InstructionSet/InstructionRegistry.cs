@@ -29,6 +29,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
         {
             var instructions = new Dictionary<OpCodes, InstructionBase>()
             {
+                // ADD
                 { OpCodes.AdcImmediate, new AdcInstruction((byte)OpCodes.AdcImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.AdcZeroPage, new AdcInstruction((byte)OpCodes.AdcZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.AdcZeroPageX, new AdcInstruction((byte)OpCodes.AdcZeroPageX, Modes.ZeroPageX, 2, 4) },
@@ -37,6 +38,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.AdcAbsoluteY, new AdcInstruction((byte)OpCodes.AdcAbsoluteY, Modes.AbsoluteY, 3, 4) }, // +1 if page crossed
                 { OpCodes.AdcIndexedIndirect, new AdcInstruction((byte)OpCodes.AdcIndexedIndirect, Modes.IndexedIndirect, 2, 6) },
                 { OpCodes.AdcIndirectIndexed, new AdcInstruction((byte)OpCodes.AdcIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
+
+                // ANC
+                { OpCodes.Anc, new AncInstruction(Modes.Immediate, 2, 3) },
+
+                // AND
                 { OpCodes.AndImmediate, new AndInstruction((byte)OpCodes.AndImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.AndAbsolute, new AndInstruction((byte)OpCodes.AndAbsolute, Modes.Absolute, 3, 4) },
                 { OpCodes.AndAbsoluteX, new AndInstruction((byte)OpCodes.AndAbsoluteX, Modes.AbsoluteX, 3, 4) }, // +1 if page crossed

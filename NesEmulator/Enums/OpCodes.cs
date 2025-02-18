@@ -12,6 +12,12 @@
         AdcZeroPage = 0x65,
         AdcZeroPageX = 0x75,
 
+        // ALR (AND LSR)
+        Alr = 0x4B,
+
+        // ANC
+        Anc = 0x0B,
+
         // AND (Logical AND)
         AndAbsolute = 0x2D,
         AndAbsoluteX = 0x3D,
@@ -21,6 +27,9 @@
         AndIndirectIndexed = 0x31,  // (Indirect), Y
         AndZeroPage = 0x25,
         AndZeroPageX = 0x35,
+
+        // ARR (AND ROR)
+        Arr = 0x6B,
 
         // Arithmetic Shift Left
         AslAbsolute = 0x0E,
@@ -113,6 +122,9 @@
         // JUMP (to Subroutine)
         Jsr = 0x20,
 
+        // Load A and X
+        Lax = 0xA7,
+
         // Load Instructions
         LdaAbsolute = 0xAD,
         LdaAbsoluteX = 0xBD,
@@ -175,6 +187,9 @@
         // Return (from Subroutine or Interrupt)
         Rts = 0x60,
         Rti = 0x40,
+
+        // Store A and X
+        Sax = 0x87,
 
         // SBC Instructions (Subtract)
         SbcAbsolute = 0xED,
