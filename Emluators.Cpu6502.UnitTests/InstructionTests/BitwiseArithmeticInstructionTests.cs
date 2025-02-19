@@ -8,7 +8,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using System.Diagnostics;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
     public class BitwiseArithmeticInstructionTests
@@ -48,7 +48,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
             var expectedStartingAccumulatorValue = (byte)0x86;
             var expectedMemoryValue = (byte)0x40;
             var expectedAndResult = (byte)(expectedStartingAccumulatorValue & expectedMemoryValue);
-            var expectedEndingAccumulatorValue = (byte)((expectedAndResult >> 1) | (_cpu.ProcessorStatus.CarryFlag ? ProcessorStatusRegister.NegativeBit : 0));
+            var expectedEndingAccumulatorValue = (byte)(expectedAndResult >> 1 | (_cpu.ProcessorStatus.CarryFlag ? ProcessorStatusRegister.NegativeBit : 0));
             _cpu.Accumulator.Value = expectedStartingAccumulatorValue;
             _cpu.Memory[0x200] = expectedMemoryValue;
             var instruction = new AlrInstruction(Modes.Immediate, 2, 3);
@@ -66,8 +66,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
             var expectedMemoryValue = (byte)0x99;
             var expectedAndResult = (byte)(expectedStartingAccumulatorValue & expectedMemoryValue);
             var expectedCarry = (expectedAndResult & ProcessorStatusRegister.CarryBit) != 0;
-            var expectedEndingAccumulatorValue = (byte)((expectedAndResult >> 1) | (_cpu.ProcessorStatus.CarryFlag ? ProcessorStatusRegister.NegativeBit : 0));
-            var expectedOverflow = ((expectedEndingAccumulatorValue >> 6) & 1) != ((expectedEndingAccumulatorValue >> 5) & 1);
+            var expectedEndingAccumulatorValue = (byte)(expectedAndResult >> 1 | (_cpu.ProcessorStatus.CarryFlag ? ProcessorStatusRegister.NegativeBit : 0));
+            var expectedOverflow = (expectedEndingAccumulatorValue >> 6 & 1) != (expectedEndingAccumulatorValue >> 5 & 1);
 
             _cpu.Accumulator.Value = expectedStartingAccumulatorValue;
             _cpu.Memory[0x200] = expectedMemoryValue;

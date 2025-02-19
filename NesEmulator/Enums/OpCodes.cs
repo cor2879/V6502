@@ -115,6 +115,15 @@
         Inx = 0xE8,
         Iny = 0xC8,
 
+        // ISB (Increment Subtract)
+        IsbAbsolute = 0xEF,
+        IsbAbsoluteX = 0xFF,
+        IsbAbsoluteY = 0xFB,
+        IsbIndexedIndirect = 0xE3,
+        IsbIndirectIndexed = 0xF3,
+        IsbZeroPage = 0xE7,
+        IsbZeroPageX = 0xF7,
+
         // JMP
         JmpA = 0x4C,
         JmpI = 0x6C,

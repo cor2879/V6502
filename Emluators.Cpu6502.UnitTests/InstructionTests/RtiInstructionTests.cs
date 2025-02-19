@@ -6,7 +6,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 using System.Diagnostics;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
     public class RtiInstructionTests
@@ -25,7 +25,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         public async Task RtiRestoresProcessorStatusAndProgramCounter()
         {
             var initialStatus = (byte)(ProcessorStatusRegister.CarryBit | ProcessorStatusRegister.OverflowBit);
-            var expectedStatus = (byte)((initialStatus & ~ProcessorStatusRegister.BrkBit) | ProcessorStatusRegister.Bit5);
+            var expectedStatus = (byte)(initialStatus & ~ProcessorStatusRegister.BrkBit | ProcessorStatusRegister.Bit5);
             var returnAddress = (DWord6502)0x3000;
 
             // Manually push values onto the stack to simulate an interrupt return

@@ -5,7 +5,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 using System.Diagnostics;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.ObjectTests
 {
     [TestClass]
     public class ProcessorTests
@@ -16,7 +16,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         [TestInitialize]
         public void Setup()
         {
-            this._cpu = new Processor(consoleMock.Object);
+            _cpu = new Processor(consoleMock.Object);
         }
 
         [TestMethod]

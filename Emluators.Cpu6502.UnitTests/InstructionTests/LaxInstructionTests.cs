@@ -5,7 +5,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
     public class LaxInstructionTests

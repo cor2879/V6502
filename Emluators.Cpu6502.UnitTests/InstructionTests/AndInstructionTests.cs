@@ -4,10 +4,10 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
-    public class OraEorInstructionTests
+    public class AndInstructionTests
     {
         private Mock<IVirtualConsole> _mockConsole;
         private Processor _cpu;
@@ -20,14 +20,14 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         }
 
         [TestMethod]
-        public async Task OraImmediatePerformsBitwiseOr()
+        public async Task AndImmediatePerformsBitwiseAnd()
         {
             var initialValue = (byte)0b10101010;
             var operand = (byte)0b11001100;
-            var expected = (byte)(initialValue | operand);
+            var expected = (byte)(initialValue & operand);
 
             _cpu.Accumulator.Value = initialValue;
-            await _cpu.LoadProgramAsync([(byte)OpCodes.OraImmediate, operand]);
+            await _cpu.LoadProgramAsync([(byte)OpCodes.AndImmediate, operand]);
 
             _cpu.Step();
 
@@ -37,15 +37,17 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         }
 
         [TestMethod]
-        public async Task EorImmediatePerformsBitwiseXor()
+        public async Task AndZeroPagePerformsBitwiseAnd()
         {
-            var initialValue = (byte)0b10101010;
-            var operand = (byte)0b11001100;
-            var expected = (byte)(initialValue ^ operand);
+            var address = (byte)0x10;
+            var initialValue = (byte)0b11110000;
+            var operand = (byte)0b00001111;
+            var expected = (byte)(initialValue & operand);
 
             _cpu.Accumulator.Value = initialValue;
-            await _cpu.LoadProgramAsync([(byte)OpCodes.EorImmediate, operand]);
+            _cpu.Memory[address] = operand;
 
+            await _cpu.LoadProgramAsync([(byte)OpCodes.AndZeroPage, address]);
             _cpu.Step();
 
             Assert.AreEqual(expected, _cpu.Accumulator.Value);
@@ -53,5 +55,4 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
             Assert.AreEqual((expected & 0x80) != 0, _cpu.ProcessorStatus.NegativeFlag);
         }
     }
-
 }

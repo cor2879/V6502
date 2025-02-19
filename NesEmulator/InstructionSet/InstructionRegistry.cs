@@ -132,6 +132,15 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.Inx, new InxInstruction((byte)OpCodes.Inx, Modes.Implied, 1, 2) },
                 { OpCodes.Iny, new InyInstruction((byte)OpCodes.Iny, Modes.Implied, 1, 2) },
 
+                // ISB Instructions (Increment Memory then Subtract with Carry)
+                { OpCodes.IsbZeroPage, new IsbInstruction((byte)OpCodes.IsbZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.IsbZeroPageX, new IsbInstruction((byte)OpCodes.IsbZeroPageX, Modes.ZeroPageX, 2, 6) },
+                { OpCodes.IsbAbsolute, new IsbInstruction((byte)OpCodes.IsbAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.IsbAbsoluteX, new IsbInstruction((byte)OpCodes.IsbAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                { OpCodes.IsbAbsoluteY, new IsbInstruction((byte)OpCodes.IsbAbsoluteY, Modes.AbsoluteY, 3, 7) },
+                { OpCodes.IsbIndexedIndirect, new IsbInstruction((byte)OpCodes.IsbIndexedIndirect, Modes.IndexedIndirect, 2, 8) },
+                { OpCodes.IsbIndirectIndexed, new IsbInstruction((byte)OpCodes.IsbIndirectIndexed, Modes.IndirectIndexed, 2, 8) },
+
                 // JMP
                 { OpCodes.JmpA, new JmpInstruction((byte)OpCodes.JmpA, Modes.Absolute) },
                 { OpCodes.JmpI, new JmpInstruction((byte)OpCodes.JmpI, Modes.Indirect) },

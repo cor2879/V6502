@@ -4,10 +4,10 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
-    public class CpyInstructionTests
+    public class CpxInstructionTests
     {
         private Mock<IVirtualConsole> _mockConsole;
         private Processor _cpu;
@@ -20,16 +20,17 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         }
 
         [TestMethod]
-        public async Task CpyImmediateSetsNegativeFlag()
+        public async Task CpxImmediateSetsCarryFlag()
         {
-            _cpu.IndexerY.Value = 0x10;
-            var value = (byte)0x20;
+            _cpu.IndexerX.Value = 0x40;
+            var value = (byte)0x30;
 
-            await _cpu.LoadProgramAsync([(byte)OpCodes.CpyImmediate, value]);
+            await _cpu.LoadProgramAsync([(byte)OpCodes.CpxImmediate, value]);
             _cpu.Step();
 
-            Assert.IsFalse(_cpu.ProcessorStatus.CarryFlag);
-            Assert.IsTrue(_cpu.ProcessorStatus.NegativeFlag);
+            Assert.IsTrue(_cpu.ProcessorStatus.CarryFlag);
+            Assert.IsFalse(_cpu.ProcessorStatus.ZeroFlag);
         }
     }
+
 }

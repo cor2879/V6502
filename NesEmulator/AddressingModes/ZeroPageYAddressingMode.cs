@@ -1,4 +1,5 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 {
@@ -30,5 +31,12 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
         {
             return (ushort)((cpu.Memory[cpu.ProgramCounter] + cpu.IndexerY.Value) & 0xFF);
         }
+
+        public override DWord6502 FetchDWord(IProcessor cpu)
+        {
+            byte address = (byte)((Fetch(cpu) + cpu.IndexerY.Value) & 0xFF);
+            return new DWord6502(address, 0x00);
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 using System.Net;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
     public class SaxInstructionTests
@@ -29,7 +29,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
             _cpu.Memory[0x0200] = 0x33;
             _cpu.Memory[0x0201] = 0x33;
             _cpu.Memory[0xBB] = 0x34;
-            _cpu.Memory[(DWord6502)((0xBB & 0xFF00) | ((0xBB + 1) & 0x00FF))] = 0x12;
+            _cpu.Memory[(DWord6502)(0xBB & 0xFF00 | 0xBB + 1 & 0x00FF)] = 0x12;
         }
 
         [DataTestMethod]

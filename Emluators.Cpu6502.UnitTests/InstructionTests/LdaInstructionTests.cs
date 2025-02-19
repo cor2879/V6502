@@ -5,7 +5,7 @@ using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
-namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
+namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {
     [TestClass]
     public class LdaInstructionTests
@@ -18,7 +18,7 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests
         {
             _mockConsole = new Mock<IVirtualConsole>();
             _cpu = new Processor(_mockConsole.Object);
-            _cpu.Memory.Clear(); 
+            _cpu.Memory.Clear();
         }
 
         [TestMethod]

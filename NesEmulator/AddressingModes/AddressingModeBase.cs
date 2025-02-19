@@ -14,6 +14,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
             return Read16(cpu);
         }
 
+        public virtual DWord6502 FetchDWord(IProcessor cpu, DWord6502 address)
+        {
+            return Read16(cpu, address);
+        }
+
         public static DWord6502 Read16(IProcessor cpu)
         {
             return new DWord6502(cpu.Memory[cpu.ProgramCounter++], cpu.Memory[cpu.ProgramCounter++]);

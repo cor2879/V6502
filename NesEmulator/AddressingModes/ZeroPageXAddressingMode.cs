@@ -1,4 +1,5 @@
 ﻿using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
+using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
 {
@@ -19,6 +20,11 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
         private ushort GetNextAddress(IProcessor cpu)
         {
             return (ushort)((cpu.Memory[cpu.ProgramCounter++] + cpu.IndexerX.Value) & 0xFF);
+        }
+
+        public override DWord6502 FetchDWord(IProcessor cpu)
+        {
+            return new DWord6502(GetNextAddress(cpu));
         }
     }
 }

@@ -18,5 +18,19 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes
             ushort effectiveAddr = Read16(cpu, zeroPageAddr);
             cpu.Memory[effectiveAddr] = value;
         }
+
+        public override DWord6502 FetchDWord(IProcessor cpu)
+        {
+            // Fetch Zero Page address and add X register
+            byte zeroPageAddress = (byte)(cpu.Memory[cpu.ProgramCounter++] + cpu.IndexerX.Value);
+
+            // Read 16-bit address from Zero Page
+            byte lowByte = cpu.Memory[zeroPageAddress];
+            byte highByte = cpu.Memory[(byte)(zeroPageAddress + 1)];
+
+            // Construct and return DWord6502
+            return new DWord6502(lowByte, highByte);
+        }
+
     }
 }
