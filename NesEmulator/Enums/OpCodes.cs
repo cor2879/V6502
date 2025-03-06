@@ -86,6 +86,15 @@
         CpyImmediate = 0xC0,
         CpyZeroPage = 0xC4,
 
+        // DCP (Decrement and Compare)
+        DcpAbsolute = 0xCF,
+        DcpAbsoluteX = 0xDF,
+        DcpAbsoluteY = 0xDB,
+        DcpIndexedIndirect = 0xC3,
+        DcpIndirectIndexed = 0xD3,
+        DcpZeroPage = 0xC7,
+        DcpZeroPageX = 0xD7,
+
         // DEC (Decrement Memory)
         DecAbsolute = 0xCE,
         DecAbsoluteX = 0xDE,
@@ -116,13 +125,22 @@
         Iny = 0xC8,
 
         // ISB (Increment Subtract)
-        IsbAbsolute = 0xEF,
-        IsbAbsoluteX = 0xFF,
-        IsbAbsoluteY = 0xFB,
-        IsbIndexedIndirect = 0xE3,
-        IsbIndirectIndexed = 0xF3,
-        IsbZeroPage = 0xE7,
-        IsbZeroPageX = 0xF7,
+        //IsbAbsolute = 0xEF,
+        //IsbAbsoluteX = 0xFF,
+        //IsbAbsoluteY = 0xFB,
+        //IsbIndexedIndirect = 0xE3,
+        //IsbIndirectIndexed = 0xF3,
+        //IsbZeroPage = 0xE7,
+        //IsbZeroPageX = 0xF7,
+
+        // ISC (Increment Memory and Subtract with Carry
+        IscAbsolute = 0xEF,
+        IscAbsoluteX = 0xFF,
+        IscAbsoluteY = 0xFB,
+        IscIndexedIndirect = 0xE3,
+        IscIndirectIndexed = 0xF3,
+        IscZeroPage = 0xE7,
+        IscZeroPageX = 0xF7,
 
         // JMP
         JmpA = 0x4C,

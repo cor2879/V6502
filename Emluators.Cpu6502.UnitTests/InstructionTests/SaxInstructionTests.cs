@@ -1,11 +1,11 @@
-﻿using Moq;
+﻿#pragma warning disable CS8618
+using Moq;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.AddressingModes;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Enums;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Interfaces;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Objects.Cpu;
 using OldSkoolGamesAndSoftware.Emulators.Cpu6502.Primitives;
-using System.Net;
 
 namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.UnitTests.InstructionTests
 {

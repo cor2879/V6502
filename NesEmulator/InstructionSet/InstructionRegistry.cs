@@ -107,6 +107,15 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.CpyImmediate, new CpyInstruction((byte)OpCodes.CpyImmediate, Modes.Immediate, 2, 2) },
                 { OpCodes.CpyZeroPage, new CpyInstruction((byte)OpCodes.CpyZeroPage, Modes.ZeroPage, 2, 3) },
 
+                // DCP (Decrement and Compare)
+                { OpCodes.DcpAbsolute, new DcpInstruction((byte)OpCodes.DcpAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.DcpAbsoluteX, new DcpInstruction((byte)OpCodes.DcpAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                { OpCodes.DcpAbsoluteY, new DcpInstruction((byte)OpCodes.DcpAbsoluteY, Modes.AbsoluteY, 3, 7) },
+                { OpCodes.DcpIndexedIndirect, new DcpInstruction((byte)OpCodes.DcpIndexedIndirect, Modes.IndexedIndirect, 2, 8) },
+                { OpCodes.DcpIndirectIndexed, new DcpInstruction((byte)OpCodes.DcpIndirectIndexed, Modes.IndirectIndexed, 2, 8) },
+                { OpCodes.DcpZeroPage, new DcpInstruction((byte)OpCodes.DcpZeroPage, Modes.ZeroPage, 2, 5)},
+                { OpCodes.DcpZeroPageX, new DcpInstruction((byte)OpCodes.DcpZeroPageX, Modes.ZeroPageX, 2, 6) },
+
                 { OpCodes.DecAbsolute, new DecInstruction((byte)OpCodes.DecAbsolute, Modes.Absolute, 3, 6) },
                 { OpCodes.DecAbsoluteX, new DecInstruction((byte)OpCodes.DecAbsoluteX, Modes.AbsoluteX, 3, 7) },
                 { OpCodes.DecZeroPage, new DecInstruction((byte)OpCodes.DecZeroPage, Modes.ZeroPage, 2, 5) },
@@ -125,6 +134,8 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.EorIndirectIndexed, new EorInstruction((byte)OpCodes.EorIndirectIndexed, Modes.IndirectIndexed, 2, 5) }, // +1 if page crossed
                 { OpCodes.EorZeroPage, new EorInstruction((byte)OpCodes.EorZeroPage, Modes.ZeroPage, 2, 3) },
                 { OpCodes.EorZeroPageX, new EorInstruction((byte)OpCodes.EorZeroPageX, Modes.ZeroPageX, 2, 4) },
+
+                // INC
                 { OpCodes.IncAbsolute, new IncInstruction((byte)OpCodes.IncAbsolute, Modes.Absolute, 3, 6) },
                 { OpCodes.IncAbsoluteX, new IncInstruction((byte)OpCodes.IncAbsoluteX, Modes.AbsoluteX, 3, 7) },
                 { OpCodes.IncZeroPage, new IncInstruction((byte)OpCodes.IncZeroPage, Modes.ZeroPage, 2, 5) },
@@ -133,13 +144,22 @@ namespace OldSkoolGamesAndSoftware.Emulators.Cpu6502.InstructionSet
                 { OpCodes.Iny, new InyInstruction((byte)OpCodes.Iny, Modes.Implied, 1, 2) },
 
                 // ISB Instructions (Increment Memory then Subtract with Carry)
-                { OpCodes.IsbZeroPage, new IsbInstruction((byte)OpCodes.IsbZeroPage, Modes.ZeroPage, 2, 5) },
-                { OpCodes.IsbZeroPageX, new IsbInstruction((byte)OpCodes.IsbZeroPageX, Modes.ZeroPageX, 2, 6) },
-                { OpCodes.IsbAbsolute, new IsbInstruction((byte)OpCodes.IsbAbsolute, Modes.Absolute, 3, 6) },
-                { OpCodes.IsbAbsoluteX, new IsbInstruction((byte)OpCodes.IsbAbsoluteX, Modes.AbsoluteX, 3, 7) },
-                { OpCodes.IsbAbsoluteY, new IsbInstruction((byte)OpCodes.IsbAbsoluteY, Modes.AbsoluteY, 3, 7) },
-                { OpCodes.IsbIndexedIndirect, new IsbInstruction((byte)OpCodes.IsbIndexedIndirect, Modes.IndexedIndirect, 2, 8) },
-                { OpCodes.IsbIndirectIndexed, new IsbInstruction((byte)OpCodes.IsbIndirectIndexed, Modes.IndirectIndexed, 2, 8) },
+                //{ OpCodes.IsbAbsolute, new IsbInstruction((byte)OpCodes.IsbAbsolute, Modes.Absolute, 3, 6) },
+                //{ OpCodes.IsbAbsoluteX, new IsbInstruction((byte)OpCodes.IsbAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                //{ OpCodes.IsbAbsoluteY, new IsbInstruction((byte)OpCodes.IsbAbsoluteY, Modes.AbsoluteY, 3, 7) },
+                //{ OpCodes.IsbIndexedIndirect, new IsbInstruction((byte)OpCodes.IsbIndexedIndirect, Modes.IndexedIndirect, 2, 8) },
+                //{ OpCodes.IsbIndirectIndexed, new IsbInstruction((byte)OpCodes.IsbIndirectIndexed, Modes.IndirectIndexed, 2, 8) },
+                //{ OpCodes.IsbZeroPage, new IsbInstruction((byte)OpCodes.IsbZeroPage, Modes.ZeroPage, 2, 5) },
+                //{ OpCodes.IsbZeroPageX, new IsbInstruction((byte)OpCodes.IsbZeroPageX, Modes.ZeroPageX, 2, 6) },
+
+                // ISC Instructions (Increment Memory and Subtract with Carry
+                { OpCodes.IscAbsolute, new IscInstruction(OpCodes.IscAbsolute, Modes.Absolute, 3, 6) },
+                { OpCodes.IscAbsoluteX, new IscInstruction(OpCodes.IscAbsoluteX, Modes.AbsoluteX, 3, 7) },
+                { OpCodes.IscAbsoluteY, new IscInstruction(OpCodes.IscAbsoluteY, Modes.AbsoluteY, 3, 7) },
+                { OpCodes.IscIndexedIndirect, new IscInstruction(OpCodes.IscIndexedIndirect, Modes.IndexedIndirect, 2, 8) },
+                { OpCodes.IscIndirectIndexed, new IscInstruction(OpCodes.IscIndirectIndexed, Modes.IndirectIndexed, 2, 8) },
+                { OpCodes.IscZeroPage, new IscInstruction(OpCodes.IscZeroPage, Modes.ZeroPage, 2, 5) },
+                { OpCodes.IscZeroPageX, new IscInstruction(OpCodes.IscZeroPageX, Modes.ZeroPageX, 2, 6) },
 
                 // JMP
                 { OpCodes.JmpA, new JmpInstruction((byte)OpCodes.JmpA, Modes.Absolute) },

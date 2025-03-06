@@ -65,6 +65,7 @@
     <Compile Include="InstructionSet\Instructions\CmpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\CpxInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\CpyInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\DcpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DecInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DexInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\DeyInstruction.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="InstructionSet\Instructions\InXInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\InyInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\IsbInstruction.cs" />
+    <Compile Include="InstructionSet\Instructions\IscInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\JmpInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\JsrInstruction.cs" />
     <Compile Include="InstructionSet\Instructions\LaxInstruction.cs" />
